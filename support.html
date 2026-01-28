@@ -56,6 +56,16 @@
             font-size: 16px;
         }
         input:focus, textarea:focus, select:focus { outline: none; border-color: #ff6b35; }
+        input[type="file"] { padding: 10px; cursor: pointer; }
+        input[type="file"]::file-selector-button {
+            background: #ff6b35;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
         textarea { min-height: 120px; resize: vertical; }
         select { cursor: pointer; }
         select option { background: #1a1f35; color: #fff; }
@@ -96,7 +106,7 @@
 
         <div class="card">
             <h2 id="contactTitle">📬 Contact Us</h2>
-            <form action="https://formsubmit.co/7715582@gmail.com" method="POST">
+            <form action="https://formsubmit.co/7715582@gmail.com" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="_subject" value="[StreetChef Support] New Message">
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_next" value="https://smiras74.github.io/streetchef-legal/thanks.html">
@@ -116,6 +126,10 @@
                 <div class="form-group">
                     <label id="labelMessage">Message</label>
                     <textarea name="message" required id="inputMessage"></textarea>
+                </div>
+                <div class="form-group">
+                    <label id="labelAttachment">Attachment (optional)</label>
+                    <input type="file" name="attachment" id="inputAttachment" accept="image/*,.pdf">
                 </div>
                 <button type="submit" id="btnSubmit">Send Message</button>
             </form>
@@ -141,6 +155,7 @@ const translations = {
         labelEmail: "Email Address", 
         labelTopic: "Topic",
         labelMessage: "Message",
+        labelAttachment: "Screenshot (optional)",
         btnSubmit: "Send Message",
         faqTitle: "❓ FAQ",
         linkPrivacy: "Privacy Policy",
@@ -163,6 +178,7 @@ const translations = {
         labelEmail: "Email",
         labelTopic: "Тема",
         labelMessage: "Сообщение",
+        labelAttachment: "Скриншот (необязательно)",
         btnSubmit: "Отправить",
         faqTitle: "❓ Частые вопросы",
         linkPrivacy: "Политика конфиденциальности",
@@ -185,6 +201,7 @@ const translations = {
         labelEmail: "Correo Electrónico",
         labelTopic: "Tema",
         labelMessage: "Mensaje",
+        labelAttachment: "Captura de pantalla (opcional)",
         btnSubmit: "Enviar Mensaje",
         faqTitle: "❓ Preguntas Frecuentes",
         linkPrivacy: "Política de Privacidad",
@@ -207,6 +224,7 @@ const translations = {
         labelEmail: "E-Mail-Adresse",
         labelTopic: "Thema",
         labelMessage: "Nachricht",
+        labelAttachment: "Screenshot (optional)",
         btnSubmit: "Nachricht senden",
         faqTitle: "❓ Häufige Fragen",
         linkPrivacy: "Datenschutzrichtlinie",
@@ -229,6 +247,7 @@ const translations = {
         labelEmail: "Adresse Email",
         labelTopic: "Sujet",
         labelMessage: "Message",
+        labelAttachment: "Capture d'écran (facultatif)",
         btnSubmit: "Envoyer le Message",
         faqTitle: "❓ Questions Fréquentes",
         linkPrivacy: "Politique de Confidentialité",
@@ -254,6 +273,7 @@ function setLang(lang) {
     document.getElementById('labelEmail').textContent = t.labelEmail;
     document.getElementById('labelTopic').textContent = t.labelTopic;
     document.getElementById('labelMessage').textContent = t.labelMessage;
+    document.getElementById('labelAttachment').textContent = t.labelAttachment;
     document.getElementById('btnSubmit').textContent = t.btnSubmit;
     document.getElementById('faqTitle').textContent = t.faqTitle;
     document.getElementById('linkPrivacy').textContent = t.linkPrivacy;
