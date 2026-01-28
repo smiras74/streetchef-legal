@@ -4,7 +4,7 @@
 
 For questions, feedback, or support requests:
 
-📧 **Email:** streetchef.app@gmail.com
+📧 **Email:** 7715582@gmail.com
 
 We typically respond within 24-48 hours.
 
