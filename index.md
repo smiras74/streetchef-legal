@@ -52,7 +52,7 @@ We may update this Privacy Policy from time to time. Changes will be reflected i
 
 If you have questions about this Privacy Policy, please contact us at:
 
-**Email:** streetchef.app@gmail.com
+**Email:** 7715582@gmail.com
 
 ---
 
