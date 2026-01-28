@@ -42,9 +42,25 @@
 <body>
     <div class="card">
         <div class="icon">✅</div>
-        <h1>Message Sent!</h1>
-        <p>Thank you for contacting us. We'll get back to you within 24-48 hours.</p>
-        <a href="support.html">← Back to Support</a>
+        <h1 id="title">Message Sent!</h1>
+        <p id="text">Thank you for contacting us. We'll get back to you within 24-48 hours.</p>
+        <a href="support.html" id="link">← Back to Support</a>
     </div>
+<script>
+const thanks = {
+    en: { title: "Message Sent!", text: "Thank you for contacting us. We'll get back to you within 24-48 hours.", link: "← Back to Support" },
+    ru: { title: "Сообщение отправлено!", text: "Спасибо за обращение. Мы ответим вам в течение 24-48 часов.", link: "← Вернуться к поддержке" },
+    es: { title: "¡Mensaje Enviado!", text: "Gracias por contactarnos. Le responderemos dentro de 24-48 horas.", link: "← Volver a Soporte" },
+    de: { title: "Nachricht Gesendet!", text: "Vielen Dank für Ihre Nachricht. Wir antworten innerhalb von 24-48 Stunden.", link: "← Zurück zum Support" },
+    fr: { title: "Message Envoyé!", text: "Merci de nous avoir contactés. Nous vous répondrons sous 24-48 heures.", link: "← Retour au Support" }
+};
+const savedLang = localStorage.getItem('streetchef-lang');
+const browserLang = navigator.language.slice(0, 2);
+const supportedLangs = ['en', 'ru', 'es', 'de', 'fr'];
+const lang = savedLang || (supportedLangs.includes(browserLang) ? browserLang : 'en');
+document.getElementById('title').textContent = thanks[lang].title;
+document.getElementById('text').textContent = thanks[lang].text;
+document.getElementById('link').textContent = thanks[lang].link;
+</script>
 </body>
 </html>

@@ -5,34 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StreetChef Support</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #1a1f35 0%, #0d1117 100%);
             min-height: 100vh;
             color: #fff;
             padding: 40px 20px;
         }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .logo {
+        .container { max-width: 600px; margin: 0 auto; }
+        .logo { text-align: center; margin-bottom: 30px; }
+        .logo h1 { font-size: 2.5em; color: #ff6b35; margin-bottom: 5px; }
+        .logo p { color: #8b949e; font-size: 1.1em; }
+        .lang-switcher {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
-        .logo h1 {
-            font-size: 2.5em;
-            color: #ff6b35;
-            margin-bottom: 5px;
-        }
-        .logo p {
+        .lang-switcher button {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
             color: #8b949e;
-            font-size: 1.1em;
+            padding: 8px 12px;
+            margin: 3px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .lang-switcher button.active, .lang-switcher button:hover {
+            background: #ff6b35;
+            color: #fff;
+            border-color: #ff6b35;
         }
         .card {
             background: rgba(255,255,255,0.05);
@@ -41,20 +43,9 @@
             margin-bottom: 20px;
             border: 1px solid rgba(255,255,255,0.1);
         }
-        h2 {
-            color: #ff6b35;
-            margin-bottom: 20px;
-            font-size: 1.4em;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #c9d1d9;
-            font-weight: 500;
-        }
+        h2 { color: #ff6b35; margin-bottom: 20px; font-size: 1.4em; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; color: #c9d1d9; font-weight: 500; }
         input, textarea, select {
             width: 100%;
             padding: 14px;
@@ -63,24 +54,12 @@
             background: rgba(255,255,255,0.05);
             color: #fff;
             font-size: 16px;
-            transition: border-color 0.3s;
         }
-        input:focus, textarea:focus, select:focus {
-            outline: none;
-            border-color: #ff6b35;
-        }
-        textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-        select {
-            cursor: pointer;
-        }
-        select option {
-            background: #1a1f35;
-            color: #fff;
-        }
-        button {
+        input:focus, textarea:focus, select:focus { outline: none; border-color: #ff6b35; }
+        textarea { min-height: 120px; resize: vertical; }
+        select { cursor: pointer; }
+        select option { background: #1a1f35; color: #fff; }
+        button[type="submit"] {
             width: 100%;
             padding: 16px;
             background: #ff6b35;
@@ -90,126 +69,221 @@
             font-size: 1.1em;
             font-weight: 600;
             cursor: pointer;
-            transition: background 0.3s;
         }
-        button:hover {
-            background: #ff8555;
-        }
-        .faq {
-            margin-top: 10px;
-        }
-        .faq-item {
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-        .faq-item h3 {
-            color: #fff;
-            font-size: 1em;
-            margin-bottom: 8px;
-        }
-        .faq-item p {
-            color: #8b949e;
-            font-size: 0.95em;
-            line-height: 1.5;
-        }
-        .links {
-            text-align: center;
-            margin-top: 30px;
-        }
-        .links a {
-            color: #ff6b35;
-            text-decoration: none;
-            margin: 0 15px;
-        }
-        .links a:hover {
-            text-decoration: underline;
-        }
-        .success-message {
-            display: none;
-            text-align: center;
-            padding: 40px;
-        }
-        .success-message h2 {
-            color: #4ade80;
-            margin-bottom: 15px;
-        }
+        button[type="submit"]:hover { background: #ff8555; }
+        .faq-item { padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-item h3 { color: #fff; font-size: 1em; margin-bottom: 8px; }
+        .faq-item p { color: #8b949e; font-size: 0.95em; line-height: 1.5; }
+        .links { text-align: center; margin-top: 30px; }
+        .links a { color: #ff6b35; text-decoration: none; margin: 0 15px; }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="logo">
             <h1>🚚 StreetChef</h1>
-            <p>Support Center</p>
+            <p id="subtitle">Support Center</p>
+        </div>
+
+        <div class="lang-switcher">
+            <button onclick="setLang('en')">EN</button>
+            <button onclick="setLang('ru')">RU</button>
+            <button onclick="setLang('es')">ES</button>
+            <button onclick="setLang('de')">DE</button>
+            <button onclick="setLang('fr')">FR</button>
         </div>
 
         <div class="card">
-            <h2>📬 Contact Us</h2>
-            <form action="https://formsubmit.co/7715582@gmail.com" method="POST" id="supportForm">
+            <h2 id="contactTitle">📬 Contact Us</h2>
+            <form action="https://formsubmit.co/7715582@gmail.com" method="POST">
                 <input type="hidden" name="_subject" value="[StreetChef Support] New Message">
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_next" value="https://smiras74.github.io/streetchef-legal/thanks.html">
+                
                 <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" required placeholder="John Smith">
+                    <label id="labelName">Your Name</label>
+                    <input type="text" name="name" required id="inputName">
                 </div>
                 <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                    <label id="labelEmail">Email Address</label>
+                    <input type="email" name="email" required id="inputEmail">
                 </div>
                 <div class="form-group">
-                    <label for="topic">Topic</label>
-                    <select id="topic" name="topic" required>
-                        <option value="">Select a topic...</option>
-                        <option value="bug">Bug Report</option>
-                        <option value="feature">Feature Request</option>
-                        <option value="question">General Question</option>
-                        <option value="billing">Billing & Subscription</option>
-                        <option value="other">Other</option>
-                    </select>
+                    <label id="labelTopic">Topic</label>
+                    <select name="topic" required id="selectTopic"></select>
                 </div>
                 <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required placeholder="Describe your issue or question..."></textarea>
+                    <label id="labelMessage">Message</label>
+                    <textarea name="message" required id="inputMessage"></textarea>
                 </div>
-                <button type="submit">Send Message</button>
+                <button type="submit" id="btnSubmit">Send Message</button>
             </form>
-            <div class="success-message" id="successMessage">
-                <h2>✅ Message Sent!</h2>
-                <p>We'll get back to you within 24-48 hours.</p>
-            </div>
         </div>
 
-        <div class="card faq">
-            <h2>❓ Frequently Asked Questions</h2>
-            
-            <div class="faq-item">
-                <h3>How do I backup my data?</h3>
-                <p>Go to Settings → Backup & Restore → Create Backup</p>
-            </div>
-            
-            <div class="faq-item">
-                <h3>Is my data stored in the cloud?</h3>
-                <p>No. All data is stored locally on your device. Nothing is sent to external servers.</p>
-            </div>
-            
-            <div class="faq-item">
-                <h3>Can I use StreetChef offline?</h3>
-                <p>Yes! StreetChef works 100% offline. No internet required.</p>
-            </div>
-            
-            <div class="faq-item">
-                <h3>How do I cancel my subscription?</h3>
-                <p>Go to iPhone Settings → Your Name → Subscriptions → StreetChef</p>
-            </div>
+        <div class="card">
+            <h2 id="faqTitle">❓ FAQ</h2>
+            <div id="faqContent"></div>
         </div>
 
         <div class="links">
-            <a href="index.html">Privacy Policy</a>
-            <a href="mailto:streetchef.app@gmail.com">Email Us</a>
+            <a href="privacy.html" id="linkPrivacy">Privacy Policy</a>
+            <a href="mailto:7715582@gmail.com" id="linkEmail">Email Us</a>
         </div>
     </div>
+
+<script>
+const translations = {
+    en: {
+        subtitle: "Support Center",
+        contactTitle: "📬 Contact Us",
+        labelName: "Your Name",
+        labelEmail: "Email Address", 
+        labelTopic: "Topic",
+        labelMessage: "Message",
+        btnSubmit: "Send Message",
+        faqTitle: "❓ FAQ",
+        linkPrivacy: "Privacy Policy",
+        linkEmail: "Email Us",
+        placeholderName: "John Smith",
+        placeholderEmail: "john@example.com",
+        placeholderMessage: "Describe your issue or question...",
+        topics: ["Select a topic...", "Bug Report", "Feature Request", "General Question", "Billing & Subscription", "Other"],
+        faq: [
+            ["How do I backup my data?", "Go to Settings → Backup & Restore → Create Backup"],
+            ["Is my data stored in the cloud?", "No. All data is stored locally on your device."],
+            ["Can I use StreetChef offline?", "Yes! StreetChef works 100% offline."],
+            ["How do I cancel my subscription?", "Go to iPhone Settings → Your Name → Subscriptions → StreetChef"]
+        ]
+    },
+    ru: {
+        subtitle: "Центр поддержки",
+        contactTitle: "📬 Связаться с нами",
+        labelName: "Ваше имя",
+        labelEmail: "Email",
+        labelTopic: "Тема",
+        labelMessage: "Сообщение",
+        btnSubmit: "Отправить",
+        faqTitle: "❓ Частые вопросы",
+        linkPrivacy: "Политика конфиденциальности",
+        linkEmail: "Написать на почту",
+        placeholderName: "Иван Иванов",
+        placeholderEmail: "ivan@example.com",
+        placeholderMessage: "Опишите вашу проблему или вопрос...",
+        topics: ["Выберите тему...", "Сообщить об ошибке", "Предложить функцию", "Общий вопрос", "Оплата и подписка", "Другое"],
+        faq: [
+            ["Как сделать резервную копию?", "Настройки → Резервное копирование → Создать копию"],
+            ["Мои данные хранятся в облаке?", "Нет. Все данные хранятся только на вашем устройстве."],
+            ["Можно ли использовать офлайн?", "Да! StreetChef работает полностью офлайн."],
+            ["Как отменить подписку?", "Настройки iPhone → Ваше имя → Подписки → StreetChef"]
+        ]
+    },
+    es: {
+        subtitle: "Centro de Soporte",
+        contactTitle: "📬 Contáctenos",
+        labelName: "Su Nombre",
+        labelEmail: "Correo Electrónico",
+        labelTopic: "Tema",
+        labelMessage: "Mensaje",
+        btnSubmit: "Enviar Mensaje",
+        faqTitle: "❓ Preguntas Frecuentes",
+        linkPrivacy: "Política de Privacidad",
+        linkEmail: "Enviar Email",
+        placeholderName: "Juan García",
+        placeholderEmail: "juan@example.com",
+        placeholderMessage: "Describa su problema o pregunta...",
+        topics: ["Seleccione un tema...", "Reportar Error", "Solicitar Función", "Pregunta General", "Facturación", "Otro"],
+        faq: [
+            ["¿Cómo hago una copia de seguridad?", "Ajustes → Copia de Seguridad → Crear Copia"],
+            ["¿Mis datos están en la nube?", "No. Todos los datos se almacenan localmente en su dispositivo."],
+            ["¿Puedo usar StreetChef sin internet?", "¡Sí! StreetChef funciona 100% sin conexión."],
+            ["¿Cómo cancelo mi suscripción?", "Ajustes de iPhone → Tu Nombre → Suscripciones → StreetChef"]
+        ]
+    },
+    de: {
+        subtitle: "Support-Center",
+        contactTitle: "📬 Kontaktieren Sie uns",
+        labelName: "Ihr Name",
+        labelEmail: "E-Mail-Adresse",
+        labelTopic: "Thema",
+        labelMessage: "Nachricht",
+        btnSubmit: "Nachricht senden",
+        faqTitle: "❓ Häufige Fragen",
+        linkPrivacy: "Datenschutzrichtlinie",
+        linkEmail: "E-Mail senden",
+        placeholderName: "Max Mustermann",
+        placeholderEmail: "max@example.com",
+        placeholderMessage: "Beschreiben Sie Ihr Problem oder Ihre Frage...",
+        topics: ["Thema auswählen...", "Fehler melden", "Funktion vorschlagen", "Allgemeine Frage", "Abrechnung", "Sonstiges"],
+        faq: [
+            ["Wie sichere ich meine Daten?", "Einstellungen → Sicherung → Sicherung erstellen"],
+            ["Werden meine Daten in der Cloud gespeichert?", "Nein. Alle Daten werden lokal auf Ihrem Gerät gespeichert."],
+            ["Kann ich StreetChef offline nutzen?", "Ja! StreetChef funktioniert 100% offline."],
+            ["Wie kündige ich mein Abo?", "iPhone-Einstellungen → Ihr Name → Abonnements → StreetChef"]
+        ]
+    },
+    fr: {
+        subtitle: "Centre d'Assistance",
+        contactTitle: "📬 Contactez-nous",
+        labelName: "Votre Nom",
+        labelEmail: "Adresse Email",
+        labelTopic: "Sujet",
+        labelMessage: "Message",
+        btnSubmit: "Envoyer le Message",
+        faqTitle: "❓ Questions Fréquentes",
+        linkPrivacy: "Politique de Confidentialité",
+        linkEmail: "Envoyer un Email",
+        placeholderName: "Jean Dupont",
+        placeholderEmail: "jean@example.com",
+        placeholderMessage: "Décrivez votre problème ou question...",
+        topics: ["Sélectionnez un sujet...", "Signaler un Bug", "Demander une Fonction", "Question Générale", "Facturation", "Autre"],
+        faq: [
+            ["Comment sauvegarder mes données?", "Paramètres → Sauvegarde → Créer une Sauvegarde"],
+            ["Mes données sont-elles dans le cloud?", "Non. Toutes les données sont stockées localement sur votre appareil."],
+            ["Puis-je utiliser StreetChef hors ligne?", "Oui! StreetChef fonctionne 100% hors ligne."],
+            ["Comment annuler mon abonnement?", "Paramètres iPhone → Votre Nom → Abonnements → StreetChef"]
+        ]
+    }
+};
+
+function setLang(lang) {
+    const t = translations[lang];
+    document.getElementById('subtitle').textContent = t.subtitle;
+    document.getElementById('contactTitle').textContent = t.contactTitle;
+    document.getElementById('labelName').textContent = t.labelName;
+    document.getElementById('labelEmail').textContent = t.labelEmail;
+    document.getElementById('labelTopic').textContent = t.labelTopic;
+    document.getElementById('labelMessage').textContent = t.labelMessage;
+    document.getElementById('btnSubmit').textContent = t.btnSubmit;
+    document.getElementById('faqTitle').textContent = t.faqTitle;
+    document.getElementById('linkPrivacy').textContent = t.linkPrivacy;
+    document.getElementById('linkEmail').textContent = t.linkEmail;
+    document.getElementById('inputName').placeholder = t.placeholderName;
+    document.getElementById('inputEmail').placeholder = t.placeholderEmail;
+    document.getElementById('inputMessage').placeholder = t.placeholderMessage;
+    
+    const select = document.getElementById('selectTopic');
+    select.innerHTML = t.topics.map((topic, i) => 
+        `<option value="${i === 0 ? '' : topic}"${i === 0 ? ' disabled selected' : ''}>${topic}</option>`
+    ).join('');
+    
+    document.getElementById('faqContent').innerHTML = t.faq.map(([q, a]) => 
+        `<div class="faq-item"><h3>${q}</h3><p>${a}</p></div>`
+    ).join('');
+    
+    document.querySelectorAll('.lang-switcher button').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+    });
+    
+    localStorage.setItem('streetchef-lang', lang);
+}
+
+// Detect language
+const savedLang = localStorage.getItem('streetchef-lang');
+const browserLang = navigator.language.slice(0, 2);
+const supportedLangs = ['en', 'ru', 'es', 'de', 'fr'];
+const defaultLang = savedLang || (supportedLangs.includes(browserLang) ? browserLang : 'en');
+setLang(defaultLang);
+</script>
 </body>
 </html>

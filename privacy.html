@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreetChef - Privacy Policy</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1f35 0%, #0d1117 100%);
+            min-height: 100vh;
+            color: #c9d1d9;
+            padding: 40px 20px;
+            line-height: 1.7;
+        }
+        .container { max-width: 700px; margin: 0 auto; }
+        .logo { text-align: center; margin-bottom: 30px; }
+        .logo h1 { font-size: 2em; color: #ff6b35; }
+        .lang-switcher {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .lang-switcher button {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #8b949e;
+            padding: 8px 12px;
+            margin: 3px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .lang-switcher button.active, .lang-switcher button:hover {
+            background: #ff6b35;
+            color: #fff;
+            border-color: #ff6b35;
+        }
+        .card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        h2 { color: #ff6b35; margin: 30px 0 15px 0; font-size: 1.3em; }
+        h2:first-of-type { margin-top: 0; }
+        p { margin-bottom: 15px; }
+        ul { margin: 15px 0 15px 25px; }
+        li { margin-bottom: 8px; }
+        strong { color: #fff; }
+        .updated { color: #8b949e; font-size: 0.9em; margin-bottom: 25px; }
+        .links { text-align: center; margin-top: 30px; }
+        .links a { color: #ff6b35; text-decoration: none; }
+        .footer { text-align: center; margin-top: 30px; color: #8b949e; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>🚚 StreetChef</h1>
+        </div>
+
+        <div class="lang-switcher">
+            <button onclick="setLang('en')">EN</button>
+            <button onclick="setLang('ru')">RU</button>
+            <button onclick="setLang('es')">ES</button>
+            <button onclick="setLang('de')">DE</button>
+            <button onclick="setLang('fr')">FR</button>
+        </div>
+
+        <div class="card" id="content"></div>
+
+        <div class="links">
+            <a href="support.html" id="linkBack">← Back to Support</a>
+        </div>
+
+        <div class="footer">© 2026 StreetChef</div>
+    </div>
+
+<script>
+const privacy = {
+    en: {
+        linkBack: "← Back to Support",
+        content: `
+            <h2>Privacy Policy</h2>
+            <p class="updated"><strong>Last updated:</strong> January 28, 2026</p>
+            <h2>Overview</h2>
+            <p>StreetChef is a food truck management application. We respect your privacy and are committed to protecting your personal data.</p>
+            <h2>Data Collection</h2>
+            <p>StreetChef is designed with privacy in mind:</p>
+            <ul>
+                <li><strong>All data is stored locally</strong> on your device</li>
+                <li><strong>No data is transmitted</strong> to external servers</li>
+                <li><strong>No analytics or tracking</strong> services are used</li>
+                <li><strong>No third-party services</strong> collect your information</li>
+            </ul>
+            <h2>What Data the App Stores</h2>
+            <p>The app stores the following information <strong>only on your device</strong>:</p>
+            <ul>
+                <li>Orders and event details</li>
+                <li>Client information (names, contacts)</li>
+                <li>Menu items and ingredients</li>
+                <li>Work session records</li>
+                <li>Gas cylinder and equipment tracking</li>
+            </ul>
+            <h2>Data Sharing</h2>
+            <p>We do <strong>not</strong> share, sell, or transfer your data to any third parties.</p>
+            <h2>Data Deletion</h2>
+            <p>You can delete all app data by deleting records within the app or uninstalling the application.</p>
+            <h2>Contact Us</h2>
+            <p><strong>Email:</strong> 7715582@gmail.com</p>
+        `
+    },
+    ru: {
+        linkBack: "← Вернуться к поддержке",
+        content: `
+            <h2>Политика конфиденциальности</h2>
+            <p class="updated"><strong>Обновлено:</strong> 28 января 2026</p>
+            <h2>Обзор</h2>
+            <p>StreetChef — приложение для управления фудтраком. Мы уважаем вашу конфиденциальность и защищаем ваши данные.</p>
+            <h2>Сбор данных</h2>
+            <p>StreetChef разработан с учётом конфиденциальности:</p>
+            <ul>
+                <li><strong>Все данные хранятся локально</strong> на вашем устройстве</li>
+                <li><strong>Данные не передаются</strong> на внешние серверы</li>
+                <li><strong>Аналитика и отслеживание</strong> не используются</li>
+                <li><strong>Сторонние сервисы</strong> не собирают вашу информацию</li>
+            </ul>
+            <h2>Какие данные хранит приложение</h2>
+            <p>Приложение хранит следующую информацию <strong>только на вашем устройстве</strong>:</p>
+            <ul>
+                <li>Заказы и детали мероприятий</li>
+                <li>Информация о клиентах (имена, контакты)</li>
+                <li>Блюда и ингредиенты</li>
+                <li>Записи рабочих смен</li>
+                <li>Учёт газовых баллонов и оборудования</li>
+            </ul>
+            <h2>Передача данных</h2>
+            <p>Мы <strong>не</strong> передаём, не продаём и не делимся вашими данными с третьими лицами.</p>
+            <h2>Удаление данных</h2>
+            <p>Вы можете удалить все данные, удалив записи в приложении или удалив приложение.</p>
+            <h2>Связаться с нами</h2>
+            <p><strong>Email:</strong> 7715582@gmail.com</p>
+        `
+    },
+    es: {
+        linkBack: "← Volver a Soporte",
+        content: `
+            <h2>Política de Privacidad</h2>
+            <p class="updated"><strong>Actualizado:</strong> 28 de enero de 2026</p>
+            <h2>Resumen</h2>
+            <p>StreetChef es una aplicación de gestión de food trucks. Respetamos su privacidad y protegemos sus datos.</p>
+            <h2>Recopilación de Datos</h2>
+            <p>StreetChef está diseñado con la privacidad en mente:</p>
+            <ul>
+                <li><strong>Todos los datos se almacenan localmente</strong> en su dispositivo</li>
+                <li><strong>No se transmiten datos</strong> a servidores externos</li>
+                <li><strong>No se utilizan servicios</strong> de análisis o seguimiento</li>
+                <li><strong>Ningún servicio de terceros</strong> recopila su información</li>
+            </ul>
+            <h2>Qué Datos Almacena la App</h2>
+            <p>La aplicación almacena la siguiente información <strong>solo en su dispositivo</strong>:</p>
+            <ul>
+                <li>Pedidos y detalles de eventos</li>
+                <li>Información de clientes (nombres, contactos)</li>
+                <li>Elementos del menú e ingredientes</li>
+                <li>Registros de sesiones de trabajo</li>
+                <li>Seguimiento de cilindros de gas y equipos</li>
+            </ul>
+            <h2>Compartir Datos</h2>
+            <p><strong>No</strong> compartimos, vendemos ni transferimos sus datos a terceros.</p>
+            <h2>Eliminación de Datos</h2>
+            <p>Puede eliminar todos los datos eliminando registros en la app o desinstalando la aplicación.</p>
+            <h2>Contáctenos</h2>
+            <p><strong>Email:</strong> 7715582@gmail.com</p>
+        `
+    },
+    de: {
+        linkBack: "← Zurück zum Support",
+        content: `
+            <h2>Datenschutzrichtlinie</h2>
+            <p class="updated"><strong>Aktualisiert:</strong> 28. Januar 2026</p>
+            <h2>Überblick</h2>
+            <p>StreetChef ist eine Food-Truck-Management-App. Wir respektieren Ihre Privatsphäre und schützen Ihre Daten.</p>
+            <h2>Datenerfassung</h2>
+            <p>StreetChef wurde mit Blick auf Datenschutz entwickelt:</p>
+            <ul>
+                <li><strong>Alle Daten werden lokal</strong> auf Ihrem Gerät gespeichert</li>
+                <li><strong>Keine Daten werden</strong> an externe Server übertragen</li>
+                <li><strong>Keine Analyse- oder Tracking-Dienste</strong> werden verwendet</li>
+                <li><strong>Keine Drittanbieter</strong> sammeln Ihre Informationen</li>
+            </ul>
+            <h2>Welche Daten die App Speichert</h2>
+            <p>Die App speichert folgende Informationen <strong>nur auf Ihrem Gerät</strong>:</p>
+            <ul>
+                <li>Bestellungen und Veranstaltungsdetails</li>
+                <li>Kundeninformationen (Namen, Kontakte)</li>
+                <li>Menüpunkte und Zutaten</li>
+                <li>Arbeitsschicht-Aufzeichnungen</li>
+                <li>Gasflaschen- und Geräteverfolgung</li>
+            </ul>
+            <h2>Datenweitergabe</h2>
+            <p>Wir geben Ihre Daten <strong>nicht</strong> an Dritte weiter, verkaufen oder übertragen sie nicht.</p>
+            <h2>Datenlöschung</h2>
+            <p>Sie können alle Daten löschen, indem Sie Einträge in der App löschen oder die App deinstallieren.</p>
+            <h2>Kontakt</h2>
+            <p><strong>Email:</strong> 7715582@gmail.com</p>
+        `
+    },
+    fr: {
+        linkBack: "← Retour au Support",
+        content: `
+            <h2>Politique de Confidentialité</h2>
+            <p class="updated"><strong>Mise à jour:</strong> 28 janvier 2026</p>
+            <h2>Aperçu</h2>
+            <p>StreetChef est une application de gestion de food truck. Nous respectons votre vie privée et protégeons vos données.</p>
+            <h2>Collecte de Données</h2>
+            <p>StreetChef est conçu avec la confidentialité à l'esprit:</p>
+            <ul>
+                <li><strong>Toutes les données sont stockées localement</strong> sur votre appareil</li>
+                <li><strong>Aucune donnée n'est transmise</strong> à des serveurs externes</li>
+                <li><strong>Aucun service d'analyse ou de suivi</strong> n'est utilisé</li>
+                <li><strong>Aucun service tiers</strong> ne collecte vos informations</li>
+            </ul>
+            <h2>Quelles Données l'App Stocke</h2>
+            <p>L'application stocke les informations suivantes <strong>uniquement sur votre appareil</strong>:</p>
+            <ul>
+                <li>Commandes et détails des événements</li>
+                <li>Informations clients (noms, contacts)</li>
+                <li>Articles du menu et ingrédients</li>
+                <li>Enregistrements des sessions de travail</li>
+                <li>Suivi des bouteilles de gaz et équipements</li>
+            </ul>
+            <h2>Partage des Données</h2>
+            <p>Nous ne partageons, vendons ou transférons <strong>pas</strong> vos données à des tiers.</p>
+            <h2>Suppression des Données</h2>
+            <p>Vous pouvez supprimer toutes les données en supprimant les entrées dans l'app ou en désinstallant l'application.</p>
+            <h2>Contactez-nous</h2>
+            <p><strong>Email:</strong> 7715582@gmail.com</p>
+        `
+    }
+};
+
+function setLang(lang) {
+    document.getElementById('content').innerHTML = privacy[lang].content;
+    document.getElementById('linkBack').textContent = privacy[lang].linkBack;
+    document.querySelectorAll('.lang-switcher button').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+    });
+    localStorage.setItem('streetchef-lang', lang);
+}
+
+const savedLang = localStorage.getItem('streetchef-lang');
+const browserLang = navigator.language.slice(0, 2);
+const supportedLangs = ['en', 'ru', 'es', 'de', 'fr'];
+const defaultLang = savedLang || (supportedLangs.includes(browserLang) ? browserLang : 'en');
+setLang(defaultLang);
+</script>
+</body>
+</html>
