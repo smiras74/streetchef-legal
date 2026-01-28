@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreetChef Support</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1f35 0%, #0d1117 100%);
+            min-height: 100vh;
+            color: #fff;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo h1 {
+            font-size: 2.5em;
+            color: #ff6b35;
+            margin-bottom: 5px;
+        }
+        .logo p {
+            color: #8b949e;
+            font-size: 1.1em;
+        }
+        .card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        h2 {
+            color: #ff6b35;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #c9d1d9;
+            font-weight: 500;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #ff6b35;
+        }
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        select {
+            cursor: pointer;
+        }
+        select option {
+            background: #1a1f35;
+            color: #fff;
+        }
+        button {
+            width: 100%;
+            padding: 16px;
+            background: #ff6b35;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #ff8555;
+        }
+        .faq {
+            margin-top: 10px;
+        }
+        .faq-item {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-item h3 {
+            color: #fff;
+            font-size: 1em;
+            margin-bottom: 8px;
+        }
+        .faq-item p {
+            color: #8b949e;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+        .links {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .links a {
+            color: #ff6b35;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+        .success-message h2 {
+            color: #4ade80;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>🚚 StreetChef</h1>
+            <p>Support Center</p>
+        </div>
+
+        <div class="card">
+            <h2>📬 Contact Us</h2>
+            <form action="https://formspree.io/f/xwpkpqvl" method="POST" id="supportForm">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required placeholder="John Smith">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="topic">Topic</label>
+                    <select id="topic" name="topic" required>
+                        <option value="">Select a topic...</option>
+                        <option value="bug">Bug Report</option>
+                        <option value="feature">Feature Request</option>
+                        <option value="question">General Question</option>
+                        <option value="billing">Billing & Subscription</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required placeholder="Describe your issue or question..."></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+            <div class="success-message" id="successMessage">
+                <h2>✅ Message Sent!</h2>
+                <p>We'll get back to you within 24-48 hours.</p>
+            </div>
+        </div>
+
+        <div class="card faq">
+            <h2>❓ Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <h3>How do I backup my data?</h3>
+                <p>Go to Settings → Backup & Restore → Create Backup</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Is my data stored in the cloud?</h3>
+                <p>No. All data is stored locally on your device. Nothing is sent to external servers.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Can I use StreetChef offline?</h3>
+                <p>Yes! StreetChef works 100% offline. No internet required.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>How do I cancel my subscription?</h3>
+                <p>Go to iPhone Settings → Your Name → Subscriptions → StreetChef</p>
+            </div>
+        </div>
+
+        <div class="links">
+            <a href="index.html">Privacy Policy</a>
+            <a href="mailto:streetchef.app@gmail.com">Email Us</a>
+        </div>
+    </div>
+</body>
+</html>
