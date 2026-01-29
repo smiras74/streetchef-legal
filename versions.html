@@ -30,20 +30,23 @@
         
         /* Header */
         header {
-            padding: 40px 20px;
+            padding: 20px 20px 40px;
             text-align: center;
             border-bottom: 1px solid var(--border);
             background: radial-gradient(ellipse at top, #1a1f35 0%, var(--bg-dark) 70%);
+            position: relative;
         }
         
         .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
+            font-size: 0.85rem;
             transition: color 0.2s;
         }
         
@@ -53,7 +56,7 @@
             width: 60px;
             height: 60px;
             border-radius: 14px;
-            margin-bottom: 16px;
+            margin: 40px auto 16px;
         }
         
         h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
@@ -221,8 +224,8 @@
 
     <header>
         <a href="marketing.html" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 19l-7-7 7-7"/></svg>
-            <span id="backText">Back to Home</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 19l-7-7 7-7"/></svg>
+            <span id="backText">Back</span>
         </a>
         <img src="icon.png" alt="StreetChef" class="logo-small">
         <h1 id="pageTitle">Version History</h1>
@@ -420,11 +423,11 @@
         };
 
         const ui = {
-            en: { back: "Back to Home", title: "Version History", subtitle: "What's new in Street Chef", home: "Home", support: "Support", privacy: "Privacy Policy", new: "New", improved: "Improved", fixed: "Fixed", latest: "Latest" },
-            ru: { back: "На главную", title: "История версий", subtitle: "Что нового в Street Chef", home: "Главная", support: "Поддержка", privacy: "Конфиденциальность", new: "Новое", improved: "Улучшено", fixed: "Исправлено", latest: "Актуально" },
-            es: { back: "Volver al inicio", title: "Historial de versiones", subtitle: "Novedades en Street Chef", home: "Inicio", support: "Soporte", privacy: "Privacidad", new: "Nuevo", improved: "Mejorado", fixed: "Corregido", latest: "Último" },
-            de: { back: "Zurück zur Startseite", title: "Versionsgeschichte", subtitle: "Was ist neu in Street Chef", home: "Start", support: "Support", privacy: "Datenschutz", new: "Neu", improved: "Verbessert", fixed: "Behoben", latest: "Aktuell" },
-            fr: { back: "Retour à l'accueil", title: "Historique des versions", subtitle: "Nouveautés de Street Chef", home: "Accueil", support: "Support", privacy: "Confidentialité", new: "Nouveau", improved: "Amélioré", fixed: "Corrigé", latest: "Dernier" }
+            en: { back: "Back", title: "Version History", subtitle: "What's new in Street Chef", home: "Home", support: "Support", privacy: "Privacy Policy", new: "New", improved: "Improved", fixed: "Fixed", latest: "Latest" },
+            ru: { back: "Назад", title: "История версий", subtitle: "Что нового в Street Chef", home: "Главная", support: "Поддержка", privacy: "Конфиденциальность", new: "Новое", improved: "Улучшено", fixed: "Исправлено", latest: "Актуально" },
+            es: { back: "Volver", title: "Historial de versiones", subtitle: "Novedades en Street Chef", home: "Inicio", support: "Soporte", privacy: "Privacidad", new: "Nuevo", improved: "Mejorado", fixed: "Corregido", latest: "Último" },
+            de: { back: "Zurück", title: "Versionsgeschichte", subtitle: "Was ist neu in Street Chef", home: "Start", support: "Support", privacy: "Datenschutz", new: "Neu", improved: "Verbessert", fixed: "Behoben", latest: "Aktuell" },
+            fr: { back: "Retour", title: "Historique des versions", subtitle: "Nouveautés de Street Chef", home: "Accueil", support: "Support", privacy: "Confidentialité", new: "Nouveau", improved: "Amélioré", fixed: "Corrigé", latest: "Dernier" }
         };
 
         const langNames = { en: 'EN', ru: 'RU', es: 'ES', de: 'DE', fr: 'FR' };
