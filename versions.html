@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreetChef - Version History</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        :root {
+            --accent: #ff6b35;
+            --accent-light: #ff8f5a;
+            --bg-dark: #0a0c10;
+            --bg-card: rgba(255,255,255,0.03);
+            --text-primary: #fff;
+            --text-secondary: #8b949e;
+            --border: rgba(255,255,255,0.08);
+        }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        
+        /* Header */
+        header {
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            background: radial-gradient(ellipse at top, #1a1f35 0%, var(--bg-dark) 70%);
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            transition: color 0.2s;
+        }
+        
+        .back-link:hover { color: var(--accent); }
+        
+        .logo-small {
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            margin-bottom: 16px;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+        
+        /* Language Switcher */
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            gap: 5px;
+            backdrop-filter: blur(10px);
+            background: rgba(0,0,0,0.3);
+            padding: 6px;
+            border-radius: 12px;
+        }
+        
+        .lang-switcher button {
+            background: transparent;
+            border: none;
+            color: #666;
+            padding: 6px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        
+        .lang-switcher button.active,
+        .lang-switcher button:hover {
+            background: var(--accent);
+            color: #fff;
+        }
+        
+        /* Main Content */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        /* Version Block */
+        .version {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 24px;
+            transition: border-color 0.3s;
+        }
+        
+        .version:hover {
+            border-color: rgba(255,107,53,0.3);
+        }
+        
+        .version-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .version-number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .version-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .version-badge {
+            background: var(--accent);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .version-badge.beta {
+            background: #3b82f6;
+        }
+        
+        /* Change Categories */
+        .changes-category {
+            margin-bottom: 20px;
+        }
+        
+        .changes-category:last-child {
+            margin-bottom: 0;
+        }
+        
+        .category-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .category-title.new { color: #22c55e; }
+        .category-title.improved { color: #3b82f6; }
+        .category-title.fixed { color: #f59e0b; }
+        
+        .category-title::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+        
+        .changes-list {
+            list-style: none;
+            padding-left: 16px;
+        }
+        
+        .changes-list li {
+            color: var(--text-secondary);
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .changes-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--border);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        
+        footer p {
+            color: #555;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+        
+        footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        
+        footer a:hover { color: var(--accent); }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .version { padding: 24px; }
+            .version-header { gap: 10px; }
+            .version-number { font-size: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-switcher">
+        <button onclick="setLang('en')">EN</button>
+        <button onclick="setLang('ru')">RU</button>
+        <button onclick="setLang('es')">ES</button>
+        <button onclick="setLang('de')">DE</button>
+        <button onclick="setLang('fr')">FR</button>
+    </div>
+
+    <header>
+        <a href="marketing.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 19l-7-7 7-7"/></svg>
+            <span id="backText">Back to Home</span>
+        </a>
+        <img src="icon.png" alt="StreetChef" class="logo-small">
+        <h1 id="pageTitle">Version History</h1>
+        <p class="subtitle" id="pageSubtitle">What's new in Street Chef</p>
+    </header>
+
+    <main id="versionsContainer"></main>
+
+    <footer>
+        <p>© 2025 Street Chef. All rights reserved.</p>
+        <div>
+            <a href="marketing.html" id="linkHome">Home</a>
+            <a href="support.html" id="linkSupport">Support</a>
+            <a href="privacy.html" id="linkPrivacy">Privacy Policy</a>
+        </div>
+    </footer>
+
+    <script>
+        const versions = {
+            en: [
+                {
+                    version: "1.1.0",
+                    date: "January 29, 2025",
+                    badge: "latest",
+                    new: [
+                        "Series-wide editing — apply changes to all orders in a recurring series",
+                        "Collapsible series in order list with ×N badge",
+                        "Sort direction toggle (↑/↓) in Orders",
+                        "Glass-style buttons on Home screen (frosted material, gradient border)"
+                    ],
+                    improved: [
+                        "Better visual grouping for recurring events",
+                        "Faster order list performance"
+                    ]
+                },
+                {
+                    version: "1.0.0",
+                    date: "January 27, 2025",
+                    badge: null,
+                    new: [
+                        "Dashboard with upcoming orders overview",
+                        "Complete order management — create, edit, track status",
+                        "Client CRM — contacts, history, preferences",
+                        "Professional PDF quotes with email sending",
+                        "Gas cylinder tracking with usage monitoring",
+                        "Fryer oil change tracking",
+                        "Menu management — dishes, ingredients, preps",
+                        "Supplier directory",
+                        "Customizable checklists for events",
+                        "Backup & Restore functionality",
+                        "5 languages: English, Russian, Spanish, German, French",
+                        "100% offline operation"
+                    ]
+                }
+            ],
+            ru: [
+                {
+                    version: "1.1.0",
+                    date: "29 января 2025",
+                    badge: "новое",
+                    new: [
+                        "Редактирование серии — изменения применяются ко всем заказам в серии",
+                        "Сворачиваемые серии в списке заказов с бейджем ×N",
+                        "Переключатель сортировки (↑/↓) в Заказах",
+                        "Кнопки в стиле Glass на главном экране (матовый материал, градиентная рамка)"
+                    ],
+                    improved: [
+                        "Улучшенная визуальная группировка повторяющихся событий",
+                        "Ускорена загрузка списка заказов"
+                    ]
+                },
+                {
+                    version: "1.0.0",
+                    date: "27 января 2025",
+                    badge: null,
+                    new: [
+                        "Главный экран с обзором предстоящих заказов",
+                        "Полное управление заказами — создание, редактирование, статусы",
+                        "CRM клиентов — контакты, история, предпочтения",
+                        "Профессиональные PDF-расчёты с отправкой по email",
+                        "Учёт газовых баллонов с мониторингом расхода",
+                        "Учёт замены масла во фритюре",
+                        "Управление меню — блюда, ингредиенты, заготовки",
+                        "Справочник поставщиков",
+                        "Настраиваемые чеклисты для мероприятий",
+                        "Резервное копирование и восстановление",
+                        "5 языков: английский, русский, испанский, немецкий, французский",
+                        "100% работа офлайн"
+                    ]
+                }
+            ],
+            es: [
+                {
+                    version: "1.1.0",
+                    date: "29 de enero de 2025",
+                    badge: "nuevo",
+                    new: [
+                        "Edición de series — aplicar cambios a todos los pedidos de una serie",
+                        "Series colapsables en la lista con insignia ×N",
+                        "Alternar dirección de ordenación (↑/↓) en Pedidos",
+                        "Botones estilo Glass en la pantalla principal"
+                    ],
+                    improved: [
+                        "Mejor agrupación visual para eventos recurrentes",
+                        "Rendimiento más rápido de la lista de pedidos"
+                    ]
+                },
+                {
+                    version: "1.0.0",
+                    date: "27 de enero de 2025",
+                    badge: null,
+                    new: [
+                        "Panel con resumen de próximos pedidos",
+                        "Gestión completa de pedidos — crear, editar, seguir estado",
+                        "CRM de clientes — contactos, historial, preferencias",
+                        "Cotizaciones PDF profesionales con envío por email",
+                        "Seguimiento de cilindros de gas con monitoreo de uso",
+                        "Seguimiento de cambio de aceite de freidora",
+                        "Gestión de menú — platos, ingredientes, preparaciones",
+                        "Directorio de proveedores",
+                        "Listas de verificación personalizables",
+                        "Copia de seguridad y restauración",
+                        "5 idiomas: inglés, ruso, español, alemán, francés",
+                        "100% operación offline"
+                    ]
+                }
+            ],
+            de: [
+                {
+                    version: "1.1.0",
+                    date: "29. Januar 2025",
+                    badge: "neu",
+                    new: [
+                        "Serienweite Bearbeitung — Änderungen auf alle Aufträge einer Serie anwenden",
+                        "Einklappbare Serien in der Auftragsliste mit ×N-Badge",
+                        "Sortierrichtung umschalten (↑/↓) bei Aufträgen",
+                        "Glass-Stil Buttons auf dem Startbildschirm"
+                    ],
+                    improved: [
+                        "Bessere visuelle Gruppierung für wiederkehrende Events",
+                        "Schnellere Leistung der Auftragsliste"
+                    ]
+                },
+                {
+                    version: "1.0.0",
+                    date: "27. Januar 2025",
+                    badge: null,
+                    new: [
+                        "Dashboard mit Übersicht anstehender Aufträge",
+                        "Vollständige Auftragsverwaltung — erstellen, bearbeiten, Status verfolgen",
+                        "Kunden-CRM — Kontakte, Historie, Präferenzen",
+                        "Professionelle PDF-Angebote mit E-Mail-Versand",
+                        "Gasflaschen-Tracking mit Verbrauchsüberwachung",
+                        "Fritteusen-Ölwechsel-Tracking",
+                        "Menüverwaltung — Gerichte, Zutaten, Vorbereitungen",
+                        "Lieferantenverzeichnis",
+                        "Anpassbare Checklisten für Events",
+                        "Backup & Wiederherstellung",
+                        "5 Sprachen: Englisch, Russisch, Spanisch, Deutsch, Französisch",
+                        "100% Offline-Betrieb"
+                    ]
+                }
+            ],
+            fr: [
+                {
+                    version: "1.1.0",
+                    date: "29 janvier 2025",
+                    badge: "nouveau",
+                    new: [
+                        "Édition de série — appliquer les modifications à toutes les commandes d'une série",
+                        "Séries réductibles dans la liste avec badge ×N",
+                        "Basculer le sens du tri (↑/↓) dans Commandes",
+                        "Boutons style Glass sur l'écran d'accueil"
+                    ],
+                    improved: [
+                        "Meilleur regroupement visuel pour les événements récurrents",
+                        "Performance plus rapide de la liste des commandes"
+                    ]
+                },
+                {
+                    version: "1.0.0",
+                    date: "27 janvier 2025",
+                    badge: null,
+                    new: [
+                        "Tableau de bord avec aperçu des commandes à venir",
+                        "Gestion complète des commandes — créer, modifier, suivre le statut",
+                        "CRM clients — contacts, historique, préférences",
+                        "Devis PDF professionnels avec envoi par email",
+                        "Suivi des bouteilles de gaz avec surveillance de l'utilisation",
+                        "Suivi des changements d'huile de friteuse",
+                        "Gestion du menu — plats, ingrédients, préparations",
+                        "Répertoire des fournisseurs",
+                        "Listes de contrôle personnalisables pour les événements",
+                        "Sauvegarde et restauration",
+                        "5 langues: anglais, russe, espagnol, allemand, français",
+                        "100% fonctionnement hors ligne"
+                    ]
+                }
+            ]
+        };
+
+        const ui = {
+            en: { back: "Back to Home", title: "Version History", subtitle: "What's new in Street Chef", home: "Home", support: "Support", privacy: "Privacy Policy", new: "New", improved: "Improved", fixed: "Fixed", latest: "Latest" },
+            ru: { back: "На главную", title: "История версий", subtitle: "Что нового в Street Chef", home: "Главная", support: "Поддержка", privacy: "Конфиденциальность", new: "Новое", improved: "Улучшено", fixed: "Исправлено", latest: "Актуально" },
+            es: { back: "Volver al inicio", title: "Historial de versiones", subtitle: "Novedades en Street Chef", home: "Inicio", support: "Soporte", privacy: "Privacidad", new: "Nuevo", improved: "Mejorado", fixed: "Corregido", latest: "Último" },
+            de: { back: "Zurück zur Startseite", title: "Versionsgeschichte", subtitle: "Was ist neu in Street Chef", home: "Start", support: "Support", privacy: "Datenschutz", new: "Neu", improved: "Verbessert", fixed: "Behoben", latest: "Aktuell" },
+            fr: { back: "Retour à l'accueil", title: "Historique des versions", subtitle: "Nouveautés de Street Chef", home: "Accueil", support: "Support", privacy: "Confidentialité", new: "Nouveau", improved: "Amélioré", fixed: "Corrigé", latest: "Dernier" }
+        };
+
+        function renderVersions(lang) {
+            const container = document.getElementById('versionsContainer');
+            const t = ui[lang];
+            
+            container.innerHTML = versions[lang].map(v => `
+                <article class="version">
+                    <div class="version-header">
+                        <span class="version-number">v${v.version}</span>
+                        <span class="version-date">${v.date}</span>
+                        ${v.badge ? `<span class="version-badge">${v.badge === 'latest' ? t.latest : v.badge}</span>` : ''}
+                    </div>
+                    ${v.new ? `
+                        <div class="changes-category">
+                            <h3 class="category-title new">${t.new}</h3>
+                            <ul class="changes-list">
+                                ${v.new.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        </div>
+                    ` : ''}
+                    ${v.improved ? `
+                        <div class="changes-category">
+                            <h3 class="category-title improved">${t.improved}</h3>
+                            <ul class="changes-list">
+                                ${v.improved.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        </div>
+                    ` : ''}
+                    ${v.fixed ? `
+                        <div class="changes-category">
+                            <h3 class="category-title fixed">${t.fixed}</h3>
+                            <ul class="changes-list">
+                                ${v.fixed.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        </div>
+                    ` : ''}
+                </article>
+            `).join('');
+        }
+
+        function setLang(lang) {
+            const t = ui[lang];
+            document.getElementById('backText').textContent = t.back;
+            document.getElementById('pageTitle').textContent = t.title;
+            document.getElementById('pageSubtitle').textContent = t.subtitle;
+            document.getElementById('linkHome').textContent = t.home;
+            document.getElementById('linkSupport').textContent = t.support;
+            document.getElementById('linkPrivacy').textContent = t.privacy;
+            
+            document.querySelectorAll('.lang-switcher button').forEach(btn => 
+                btn.classList.toggle('active', btn.textContent.toLowerCase() === lang)
+            );
+            
+            renderVersions(lang);
+            localStorage.setItem('streetchef-lang', lang);
+        }
+
+        // Init
+        const savedLang = localStorage.getItem('streetchef-lang');
+        const browserLang = navigator.language.slice(0, 2);
+        const supportedLangs = ['en', 'ru', 'es', 'de', 'fr'];
+        setLang(savedLang || (supportedLangs.includes(browserLang) ? browserLang : 'en'));
+    </script>
+</body>
+</html>
