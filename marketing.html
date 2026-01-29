@@ -30,10 +30,18 @@
             overflow-x: hidden;
         }
 
-        /* Language Switcher */
-        .lang-switcher { position: fixed; top: 20px; right: 20px; z-index: 100; display: flex; gap: 5px; backdrop-filter: blur(10px); background: rgba(0,0,0,0.3); padding: 6px; border-radius: 12px; }
-        .lang-switcher button { background: transparent; border: none; color: #666; padding: 6px 10px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.2s; }
-        .lang-switcher button.active, .lang-switcher button:hover { background: var(--accent); color: #fff; }
+        /* Language Dropdown */
+        .lang-dropdown { position: fixed; top: 16px; right: 16px; z-index: 100; }
+        .lang-toggle { display: flex; align-items: center; gap: 6px; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 8px 12px; border-radius: 10px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.2s; }
+        .lang-toggle:hover { background: rgba(255,107,53,0.2); border-color: var(--accent); }
+        .lang-toggle svg { transition: transform 0.2s; }
+        .lang-dropdown.open .lang-toggle svg { transform: rotate(180deg); }
+        .lang-menu { position: absolute; top: calc(100% + 8px); right: 0; background: rgba(20,24,32,0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 6px; min-width: 120px; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.2s; }
+        .lang-dropdown.open .lang-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .lang-menu button { display: flex; align-items: center; gap: 10px; width: 100%; background: transparent; border: none; color: var(--text-secondary); padding: 10px 12px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 500; text-align: left; transition: all 0.15s; }
+        .lang-menu button:hover { background: rgba(255,255,255,0.05); color: #fff; }
+        .lang-menu button.active { background: var(--accent); color: #fff; }
+        .lang-menu button .flag { font-size: 16px; }
 
         /* Hero Section */
         .hero { min-height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 100px 20px 40px; text-align: center; background: radial-gradient(ellipse at 20% 20%, rgba(255, 107, 53, 0.08) 0%, transparent 50%), radial-gradient(ellipse at 80% 80%, rgba(255, 143, 90, 0.05) 0%, transparent 50%), radial-gradient(ellipse at top, #1a1f35 0%, var(--bg-dark) 70%); }
@@ -143,12 +151,18 @@
     </style>
 </head>
 <body>
-    <div class="lang-switcher">
-        <button onclick="setLang('en')">EN</button>
-        <button onclick="setLang('ru')">RU</button>
-        <button onclick="setLang('es')">ES</button>
-        <button onclick="setLang('de')">DE</button>
-        <button onclick="setLang('fr')">FR</button>
+    <div class="lang-dropdown" id="langDropdown">
+        <button class="lang-toggle" onclick="toggleLangMenu()">
+            <span id="currentLang">🇬🇧 EN</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="lang-menu">
+            <button onclick="setLang('en')"><span class="flag">🇬🇧</span> English</button>
+            <button onclick="setLang('ru')"><span class="flag">🇷🇺</span> Русский</button>
+            <button onclick="setLang('es')"><span class="flag">🇪🇸</span> Español</button>
+            <button onclick="setLang('de')"><span class="flag">🇩🇪</span> Deutsch</button>
+            <button onclick="setLang('fr')"><span class="flag">🇫🇷</span> Français</button>
+        </div>
     </div>
 
     <section class="hero">
@@ -274,7 +288,10 @@
             document.getElementById('stats').innerHTML = d.stats.map(([num, label]) => `<div class="stat"><div class="stat-number">${num}</div><div class="stat-label">${label}</div></div>`).join('');
             document.getElementById('featureGrid').innerHTML = d.features.map(([icon, title, desc]) => `<div class="feature"><div class="feature-icon">${icon}</div><h3>${title}</h3><p>${desc}</p></div>`).join('');
             
-            document.querySelectorAll('.lang-switcher button').forEach(btn => btn.classList.toggle('active', btn.textContent.toLowerCase() === lang));
+            document.querySelectorAll('.lang-menu button').forEach(btn => btn.classList.toggle('active', btn.onclick.toString().includes(`'${lang}'`)));
+            const flags = { en: '🇬🇧', ru: '🇷🇺', es: '🇪🇸', de: '🇩🇪', fr: '🇫🇷' };
+            document.getElementById('currentLang').textContent = `${flags[lang]} ${lang.toUpperCase()}`;
+            document.getElementById('langDropdown').classList.remove('open');
             localStorage.setItem('streetchef-lang', lang);
             
             currentSlide = 0;
@@ -301,6 +318,16 @@
         }, {passive: true});
         
         window.addEventListener('resize', () => updateCarousel());
+        
+        function toggleLangMenu() {
+            document.getElementById('langDropdown').classList.toggle('open');
+        }
+        
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.lang-dropdown')) {
+                document.getElementById('langDropdown').classList.remove('open');
+            }
+        });
         
         const savedLang = localStorage.getItem('streetchef-lang');
         const browserLang = navigator.language.slice(0, 2);
