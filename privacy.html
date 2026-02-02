@@ -59,7 +59,7 @@
     <div class="container">
         <div class="logo">
             <img src="icon.png" alt="StreetChef" class="logo-icon">
-            <h1>StreetChef</h1>
+            <h1>Street Chef</h1>
         </div>
 
         <div class="lang-switcher">
@@ -76,7 +76,7 @@
             <a href="support.html" id="linkBack">← Back to Support</a>
         </div>
 
-        <div class="footer">© 2026 StreetChef</div>
+        <div class="footer">© 2026 Street Chef</div>
     </div>
 
 <script>
@@ -85,31 +85,77 @@ const privacy = {
         linkBack: "← Back to Support",
         content: `
             <h2>Privacy Policy</h2>
-            <p class="updated"><strong>Last updated:</strong> January 28, 2026</p>
+            <p class="updated"><strong>Last updated:</strong> February 2, 2026</p>
+
             <h2>Overview</h2>
-            <p>StreetChef is a food truck management application. We respect your privacy and are committed to protecting your personal data.</p>
-            <h2>Data Collection</h2>
-            <p>StreetChef is designed with privacy in mind:</p>
+            <p>Street Chef is a food truck management application. We respect your privacy and are committed to protecting your personal data. This policy explains what data we collect, how we use it, and your rights.</p>
+
+            <h2>Offline Mode</h2>
+            <p>Street Chef works <strong>fully offline</strong>. All core data is stored locally on your device using an embedded database. You can use the app without creating an account or connecting to the internet.</p>
+
+            <h2>Account & Team Sync</h2>
+            <p>If you choose to create an account and use the <strong>Team Sync</strong> feature, the following data is transmitted to and stored on cloud servers:</p>
             <ul>
-                <li><strong>All data is stored locally</strong> on your device</li>
-                <li><strong>No data is transmitted</strong> to external servers</li>
-                <li><strong>No analytics or tracking</strong> services are used</li>
-                <li><strong>No third-party services</strong> collect your information</li>
+                <li><strong>Authentication data:</strong> email address, encrypted password (managed by Firebase Authentication)</li>
+                <li><strong>Business data:</strong> orders, events, client names and contacts, menu items</li>
+                <li><strong>Operational data:</strong> work sessions, gas cylinder levels, fryer oil logs</li>
+                <li><strong>Team data:</strong> employee names, roles, team membership</li>
+                <li><strong>App settings:</strong> business name, preferences</li>
             </ul>
-            <h2>What Data the App Stores</h2>
-            <p>The app stores the following information <strong>only on your device</strong>:</p>
+            <p>This data is synchronized via <strong>Google Firebase</strong> (Firestore) to enable real-time collaboration between team members. Data is transmitted over encrypted connections (TLS/SSL).</p>
+
+            <h2>Third-Party Services</h2>
+            <p>When using Team Sync, we use the following third-party service:</p>
             <ul>
-                <li>Orders and event details</li>
-                <li>Client information (names, contacts)</li>
-                <li>Menu items and ingredients</li>
-                <li>Work session records</li>
-                <li>Gas cylinder and equipment tracking</li>
+                <li><strong>Google Firebase</strong> (Authentication and Firestore database) — data is stored on Google Cloud servers. Google's privacy policy: <a href="https://policies.google.com/privacy" style="color:#ff6b35">policies.google.com/privacy</a></li>
             </ul>
+            <p>We do <strong>not</strong> use any analytics, advertising, or tracking services. We do <strong>not</strong> collect usage statistics or behavioral data.</p>
+
+            <h2>Data We Do NOT Collect</h2>
+            <ul>
+                <li>Location data or GPS coordinates</li>
+                <li>Device identifiers or fingerprints</li>
+                <li>Usage analytics or behavioral data</li>
+                <li>Advertising identifiers</li>
+                <li>Contacts, photos, or other personal files</li>
+                <li>Payment or financial information</li>
+            </ul>
+
+            <h2>Data Storage & Security</h2>
+            <ul>
+                <li><strong>Local data</strong> is stored in an encrypted database on your device</li>
+                <li><strong>Cloud data</strong> (if Team Sync is enabled) is stored on Google Cloud servers with Firestore security rules restricting access to authorized team members only</li>
+                <li>All network communications use TLS/SSL encryption</li>
+                <li>Passwords are never stored in plain text</li>
+            </ul>
+
             <h2>Data Sharing</h2>
-            <p>We do <strong>not</strong> share, sell, or transfer your data to any third parties.</p>
-            <h2>Data Deletion</h2>
-            <p>You can delete all app data by deleting records within the app or uninstalling the application.</p>
+            <p>We do <strong>not</strong> sell, rent, or share your data with any third parties for marketing or advertising purposes. Your business data is only shared with members of your team that you explicitly invite.</p>
+
+            <h2>Data Retention & Deletion</h2>
+            <ul>
+                <li><strong>Local data:</strong> deleted when you remove records in the app or uninstall the application</li>
+                <li><strong>Cloud data:</strong> you can request complete deletion of your cloud data by contacting us. When you delete your account, all associated data is removed from our servers</li>
+            </ul>
+
+            <h2>Your Rights</h2>
+            <p>You have the right to:</p>
+            <ul>
+                <li>Use the app entirely offline without creating an account</li>
+                <li>Request access to your personal data</li>
+                <li>Request deletion of your account and all associated data</li>
+                <li>Export your data</li>
+                <li>Withdraw consent for cloud sync at any time</li>
+            </ul>
+
+            <h2>Children's Privacy</h2>
+            <p>Street Chef is not intended for use by children under the age of 13. We do not knowingly collect data from children.</p>
+
+            <h2>Changes to This Policy</h2>
+            <p>We may update this privacy policy from time to time. We will notify users of significant changes through the app or our website.</p>
+
             <h2>Contact Us</h2>
+            <p>If you have questions about this privacy policy or want to request data deletion:</p>
             <p><strong>Email:</strong> 7715582@gmail.com</p>
         `
     },
@@ -117,31 +163,77 @@ const privacy = {
         linkBack: "← Вернуться к поддержке",
         content: `
             <h2>Политика конфиденциальности</h2>
-            <p class="updated"><strong>Обновлено:</strong> 28 января 2026</p>
+            <p class="updated"><strong>Обновлено:</strong> 2 февраля 2026</p>
+
             <h2>Обзор</h2>
-            <p>StreetChef — приложение для управления фудтраком. Мы уважаем вашу конфиденциальность и защищаем ваши данные.</p>
-            <h2>Сбор данных</h2>
-            <p>StreetChef разработан с учётом конфиденциальности:</p>
+            <p>Street Chef — приложение для управления фудтраком. Мы уважаем вашу конфиденциальность и защищаем ваши персональные данные. Эта политика объясняет, какие данные мы собираем, как их используем и какие у вас права.</p>
+
+            <h2>Офлайн-режим</h2>
+            <p>Street Chef работает <strong>полностью офлайн</strong>. Все основные данные хранятся локально на вашем устройстве. Вы можете использовать приложение без создания аккаунта и без подключения к интернету.</p>
+
+            <h2>Аккаунт и командная синхронизация</h2>
+            <p>Если вы решите создать аккаунт и использовать функцию <strong>командной синхронизации</strong>, следующие данные передаются и хранятся на облачных серверах:</p>
             <ul>
-                <li><strong>Все данные хранятся локально</strong> на вашем устройстве</li>
-                <li><strong>Данные не передаются</strong> на внешние серверы</li>
-                <li><strong>Аналитика и отслеживание</strong> не используются</li>
-                <li><strong>Сторонние сервисы</strong> не собирают вашу информацию</li>
+                <li><strong>Данные аутентификации:</strong> адрес электронной почты, зашифрованный пароль (управляется Firebase Authentication)</li>
+                <li><strong>Бизнес-данные:</strong> заказы, мероприятия, имена и контакты клиентов, позиции меню</li>
+                <li><strong>Операционные данные:</strong> рабочие смены, уровни газовых баллонов, журнал масла фритюрницы</li>
+                <li><strong>Данные команды:</strong> имена сотрудников, роли, членство в команде</li>
+                <li><strong>Настройки:</strong> название бизнеса, предпочтения</li>
             </ul>
-            <h2>Какие данные хранит приложение</h2>
-            <p>Приложение хранит следующую информацию <strong>только на вашем устройстве</strong>:</p>
+            <p>Данные синхронизируются через <strong>Google Firebase</strong> (Firestore) для совместной работы команды в реальном времени. Передача данных осуществляется по зашифрованным каналам (TLS/SSL).</p>
+
+            <h2>Сторонние сервисы</h2>
+            <p>При использовании командной синхронизации мы используем следующий сторонний сервис:</p>
             <ul>
-                <li>Заказы и детали мероприятий</li>
-                <li>Информация о клиентах (имена, контакты)</li>
-                <li>Блюда и ингредиенты</li>
-                <li>Записи рабочих смен</li>
-                <li>Учёт газовых баллонов и оборудования</li>
+                <li><strong>Google Firebase</strong> (аутентификация и база данных Firestore) — данные хранятся на серверах Google Cloud. Политика конфиденциальности Google: <a href="https://policies.google.com/privacy" style="color:#ff6b35">policies.google.com/privacy</a></li>
             </ul>
-            <h2>Передача данных</h2>
-            <p>Мы <strong>не</strong> передаём, не продаём и не делимся вашими данными с третьими лицами.</p>
-            <h2>Удаление данных</h2>
-            <p>Вы можете удалить все данные, удалив записи в приложении или удалив приложение.</p>
+            <p>Мы <strong>не</strong> используем сервисы аналитики, рекламы или отслеживания. Мы <strong>не</strong> собираем статистику использования или поведенческие данные.</p>
+
+            <h2>Данные, которые мы НЕ собираем</h2>
+            <ul>
+                <li>Данные о местоположении или GPS-координаты</li>
+                <li>Идентификаторы устройства</li>
+                <li>Аналитику использования или поведенческие данные</li>
+                <li>Рекламные идентификаторы</li>
+                <li>Контакты, фото или другие личные файлы</li>
+                <li>Платёжную или финансовую информацию</li>
+            </ul>
+
+            <h2>Хранение и безопасность данных</h2>
+            <ul>
+                <li><strong>Локальные данные</strong> хранятся в зашифрованной базе на вашем устройстве</li>
+                <li><strong>Облачные данные</strong> (при включённой синхронизации) хранятся на серверах Google Cloud с правилами безопасности Firestore, ограничивающими доступ только авторизованным членам команды</li>
+                <li>Все сетевые соединения используют шифрование TLS/SSL</li>
+                <li>Пароли никогда не хранятся в открытом виде</li>
+            </ul>
+
+            <h2>Передача данных третьим лицам</h2>
+            <p>Мы <strong>не</strong> продаём, не сдаём в аренду и не передаём ваши данные третьим лицам в маркетинговых или рекламных целях. Ваши бизнес-данные доступны только членам вашей команды, которых вы лично приглашаете.</p>
+
+            <h2>Хранение и удаление данных</h2>
+            <ul>
+                <li><strong>Локальные данные:</strong> удаляются при удалении записей в приложении или при удалении приложения</li>
+                <li><strong>Облачные данные:</strong> вы можете запросить полное удаление облачных данных, связавшись с нами. При удалении аккаунта все связанные данные удаляются с наших серверов</li>
+            </ul>
+
+            <h2>Ваши права</h2>
+            <p>Вы имеете право:</p>
+            <ul>
+                <li>Использовать приложение полностью офлайн без создания аккаунта</li>
+                <li>Запросить доступ к своим персональным данным</li>
+                <li>Запросить удаление аккаунта и всех связанных данных</li>
+                <li>Экспортировать свои данные</li>
+                <li>Отозвать согласие на облачную синхронизацию в любое время</li>
+            </ul>
+
+            <h2>Конфиденциальность детей</h2>
+            <p>Street Chef не предназначен для детей младше 13 лет. Мы сознательно не собираем данные у детей.</p>
+
+            <h2>Изменения политики</h2>
+            <p>Мы можем обновлять эту политику конфиденциальности. О существенных изменениях мы уведомим пользователей через приложение или наш сайт.</p>
+
             <h2>Связаться с нами</h2>
+            <p>Если у вас есть вопросы о политике конфиденциальности или вы хотите запросить удаление данных:</p>
             <p><strong>Email:</strong> 7715582@gmail.com</p>
         `
     },
@@ -149,30 +241,74 @@ const privacy = {
         linkBack: "← Volver a Soporte",
         content: `
             <h2>Política de Privacidad</h2>
-            <p class="updated"><strong>Actualizado:</strong> 28 de enero de 2026</p>
+            <p class="updated"><strong>Actualizado:</strong> 2 de febrero de 2026</p>
+
             <h2>Resumen</h2>
-            <p>StreetChef es una aplicación de gestión de food trucks. Respetamos su privacidad y protegemos sus datos.</p>
-            <h2>Recopilación de Datos</h2>
-            <p>StreetChef está diseñado con la privacidad en mente:</p>
+            <p>Street Chef es una aplicación de gestión de food trucks. Respetamos su privacidad y nos comprometemos a proteger sus datos personales.</p>
+
+            <h2>Modo Offline</h2>
+            <p>Street Chef funciona <strong>completamente offline</strong>. Todos los datos se almacenan localmente en su dispositivo. Puede usar la app sin crear una cuenta ni conectarse a internet.</p>
+
+            <h2>Cuenta y Sincronización de Equipo</h2>
+            <p>Si decide crear una cuenta y usar la función de <strong>sincronización de equipo</strong>, los siguientes datos se transmiten y almacenan en servidores en la nube:</p>
             <ul>
-                <li><strong>Todos los datos se almacenan localmente</strong> en su dispositivo</li>
-                <li><strong>No se transmiten datos</strong> a servidores externos</li>
-                <li><strong>No se utilizan servicios</strong> de análisis o seguimiento</li>
-                <li><strong>Ningún servicio de terceros</strong> recopila su información</li>
+                <li><strong>Datos de autenticación:</strong> correo electrónico, contraseña cifrada (gestionada por Firebase Authentication)</li>
+                <li><strong>Datos comerciales:</strong> pedidos, eventos, nombres y contactos de clientes, elementos del menú</li>
+                <li><strong>Datos operativos:</strong> sesiones de trabajo, niveles de cilindros de gas, registros de aceite de freidora</li>
+                <li><strong>Datos del equipo:</strong> nombres de empleados, roles, membresía</li>
+                <li><strong>Configuración:</strong> nombre del negocio, preferencias</li>
             </ul>
-            <h2>Qué Datos Almacena la App</h2>
-            <p>La aplicación almacena la siguiente información <strong>solo en su dispositivo</strong>:</p>
+            <p>Los datos se sincronizan a través de <strong>Google Firebase</strong> (Firestore) para la colaboración en tiempo real. La transmisión usa conexiones cifradas (TLS/SSL).</p>
+
+            <h2>Servicios de Terceros</h2>
+            <p>Al usar la sincronización, utilizamos:</p>
             <ul>
-                <li>Pedidos y detalles de eventos</li>
-                <li>Información de clientes (nombres, contactos)</li>
-                <li>Elementos del menú e ingredientes</li>
-                <li>Registros de sesiones de trabajo</li>
-                <li>Seguimiento de cilindros de gas y equipos</li>
+                <li><strong>Google Firebase</strong> (autenticación y base de datos Firestore) — los datos se almacenan en servidores de Google Cloud. Política de privacidad de Google: <a href="https://policies.google.com/privacy" style="color:#ff6b35">policies.google.com/privacy</a></li>
             </ul>
+            <p><strong>No</strong> usamos servicios de análisis, publicidad o seguimiento. <strong>No</strong> recopilamos estadísticas de uso.</p>
+
+            <h2>Datos que NO Recopilamos</h2>
+            <ul>
+                <li>Datos de ubicación o coordenadas GPS</li>
+                <li>Identificadores de dispositivo</li>
+                <li>Análisis de uso o datos de comportamiento</li>
+                <li>Identificadores publicitarios</li>
+                <li>Contactos, fotos u otros archivos personales</li>
+                <li>Información de pago o financiera</li>
+            </ul>
+
+            <h2>Almacenamiento y Seguridad</h2>
+            <ul>
+                <li><strong>Datos locales</strong> almacenados en base de datos cifrada en su dispositivo</li>
+                <li><strong>Datos en la nube</strong> almacenados en servidores Google Cloud con reglas de seguridad de Firestore</li>
+                <li>Todas las comunicaciones usan cifrado TLS/SSL</li>
+                <li>Las contraseñas nunca se almacenan en texto plano</li>
+            </ul>
+
             <h2>Compartir Datos</h2>
-            <p><strong>No</strong> compartimos, vendemos ni transferimos sus datos a terceros.</p>
-            <h2>Eliminación de Datos</h2>
-            <p>Puede eliminar todos los datos eliminando registros en la app o desinstalando la aplicación.</p>
+            <p><strong>No</strong> vendemos, alquilamos ni compartimos sus datos con terceros con fines publicitarios. Sus datos solo son accesibles para los miembros del equipo que usted invite.</p>
+
+            <h2>Retención y Eliminación</h2>
+            <ul>
+                <li><strong>Datos locales:</strong> se eliminan al borrar registros o desinstalar la app</li>
+                <li><strong>Datos en la nube:</strong> puede solicitar la eliminación completa contactándonos. Al eliminar su cuenta, todos los datos asociados se eliminan</li>
+            </ul>
+
+            <h2>Sus Derechos</h2>
+            <ul>
+                <li>Usar la app completamente offline sin cuenta</li>
+                <li>Solicitar acceso a sus datos personales</li>
+                <li>Solicitar eliminación de cuenta y datos</li>
+                <li>Exportar sus datos</li>
+                <li>Retirar el consentimiento de sincronización en cualquier momento</li>
+            </ul>
+
+            <h2>Privacidad Infantil</h2>
+            <p>Street Chef no está destinado a menores de 13 años.</p>
+
+            <h2>Cambios en la Política</h2>
+            <p>Podemos actualizar esta política. Notificaremos cambios significativos a través de la app o nuestro sitio web.</p>
+
             <h2>Contáctenos</h2>
             <p><strong>Email:</strong> 7715582@gmail.com</p>
         `
@@ -181,30 +317,74 @@ const privacy = {
         linkBack: "← Zurück zum Support",
         content: `
             <h2>Datenschutzrichtlinie</h2>
-            <p class="updated"><strong>Aktualisiert:</strong> 28. Januar 2026</p>
+            <p class="updated"><strong>Aktualisiert:</strong> 2. Februar 2026</p>
+
             <h2>Überblick</h2>
-            <p>StreetChef ist eine Food-Truck-Management-App. Wir respektieren Ihre Privatsphäre und schützen Ihre Daten.</p>
-            <h2>Datenerfassung</h2>
-            <p>StreetChef wurde mit Blick auf Datenschutz entwickelt:</p>
+            <p>Street Chef ist eine Food-Truck-Management-App. Wir respektieren Ihre Privatsphäre und schützen Ihre personenbezogenen Daten.</p>
+
+            <h2>Offline-Modus</h2>
+            <p>Street Chef funktioniert <strong>vollständig offline</strong>. Alle Daten werden lokal auf Ihrem Gerät gespeichert. Sie können die App ohne Konto und ohne Internet nutzen.</p>
+
+            <h2>Konto und Team-Synchronisierung</h2>
+            <p>Wenn Sie ein Konto erstellen und die <strong>Team-Synchronisierung</strong> nutzen, werden folgende Daten auf Cloud-Server übertragen und gespeichert:</p>
             <ul>
-                <li><strong>Alle Daten werden lokal</strong> auf Ihrem Gerät gespeichert</li>
-                <li><strong>Keine Daten werden</strong> an externe Server übertragen</li>
-                <li><strong>Keine Analyse- oder Tracking-Dienste</strong> werden verwendet</li>
-                <li><strong>Keine Drittanbieter</strong> sammeln Ihre Informationen</li>
+                <li><strong>Authentifizierungsdaten:</strong> E-Mail-Adresse, verschlüsseltes Passwort (verwaltet durch Firebase Authentication)</li>
+                <li><strong>Geschäftsdaten:</strong> Bestellungen, Veranstaltungen, Kundennamen und -kontakte, Menüpunkte</li>
+                <li><strong>Betriebsdaten:</strong> Arbeitsschichten, Gasflaschenstand, Frittieröl-Protokolle</li>
+                <li><strong>Teamdaten:</strong> Mitarbeiternamen, Rollen, Teammitgliedschaft</li>
+                <li><strong>Einstellungen:</strong> Geschäftsname, Präferenzen</li>
             </ul>
-            <h2>Welche Daten die App Speichert</h2>
-            <p>Die App speichert folgende Informationen <strong>nur auf Ihrem Gerät</strong>:</p>
+            <p>Die Daten werden über <strong>Google Firebase</strong> (Firestore) für Echtzeit-Zusammenarbeit synchronisiert. Die Übertragung erfolgt über verschlüsselte Verbindungen (TLS/SSL).</p>
+
+            <h2>Drittanbieterdienste</h2>
+            <p>Bei Nutzung der Synchronisierung verwenden wir:</p>
             <ul>
-                <li>Bestellungen und Veranstaltungsdetails</li>
-                <li>Kundeninformationen (Namen, Kontakte)</li>
-                <li>Menüpunkte und Zutaten</li>
-                <li>Arbeitsschicht-Aufzeichnungen</li>
-                <li>Gasflaschen- und Geräteverfolgung</li>
+                <li><strong>Google Firebase</strong> (Authentifizierung und Firestore-Datenbank) — Daten werden auf Google Cloud-Servern gespeichert. Google-Datenschutzrichtlinie: <a href="https://policies.google.com/privacy" style="color:#ff6b35">policies.google.com/privacy</a></li>
             </ul>
+            <p>Wir verwenden <strong>keine</strong> Analyse-, Werbe- oder Tracking-Dienste. Wir erfassen <strong>keine</strong> Nutzungsstatistiken.</p>
+
+            <h2>Daten, die wir NICHT erfassen</h2>
+            <ul>
+                <li>Standortdaten oder GPS-Koordinaten</li>
+                <li>Gerätekennungen</li>
+                <li>Nutzungsanalysen oder Verhaltensdaten</li>
+                <li>Werbe-Identifikatoren</li>
+                <li>Kontakte, Fotos oder andere persönliche Dateien</li>
+                <li>Zahlungs- oder Finanzinformationen</li>
+            </ul>
+
+            <h2>Datenspeicherung und Sicherheit</h2>
+            <ul>
+                <li><strong>Lokale Daten</strong> in verschlüsselter Datenbank auf Ihrem Gerät</li>
+                <li><strong>Cloud-Daten</strong> auf Google Cloud-Servern mit Firestore-Sicherheitsregeln</li>
+                <li>Alle Kommunikation über TLS/SSL-Verschlüsselung</li>
+                <li>Passwörter werden nie im Klartext gespeichert</li>
+            </ul>
+
             <h2>Datenweitergabe</h2>
-            <p>Wir geben Ihre Daten <strong>nicht</strong> an Dritte weiter, verkaufen oder übertragen sie nicht.</p>
-            <h2>Datenlöschung</h2>
-            <p>Sie können alle Daten löschen, indem Sie Einträge in der App löschen oder die App deinstallieren.</p>
+            <p>Wir verkaufen, vermieten oder teilen Ihre Daten <strong>nicht</strong> mit Dritten zu Werbezwecken. Ihre Daten sind nur für eingeladene Teammitglieder zugänglich.</p>
+
+            <h2>Datenspeicherung und Löschung</h2>
+            <ul>
+                <li><strong>Lokale Daten:</strong> werden beim Löschen von Einträgen oder Deinstallation gelöscht</li>
+                <li><strong>Cloud-Daten:</strong> Sie können die vollständige Löschung beantragen. Bei Kontolöschung werden alle zugehörigen Daten entfernt</li>
+            </ul>
+
+            <h2>Ihre Rechte</h2>
+            <ul>
+                <li>Die App vollständig offline ohne Konto nutzen</li>
+                <li>Zugang zu Ihren personenbezogenen Daten anfordern</li>
+                <li>Löschung von Konto und Daten beantragen</li>
+                <li>Ihre Daten exportieren</li>
+                <li>Einwilligung zur Cloud-Synchronisierung jederzeit widerrufen</li>
+            </ul>
+
+            <h2>Datenschutz für Kinder</h2>
+            <p>Street Chef ist nicht für Kinder unter 13 Jahren bestimmt.</p>
+
+            <h2>Änderungen der Richtlinie</h2>
+            <p>Wir können diese Richtlinie aktualisieren. Wesentliche Änderungen werden über die App oder unsere Website mitgeteilt.</p>
+
             <h2>Kontakt</h2>
             <p><strong>Email:</strong> 7715582@gmail.com</p>
         `
@@ -213,30 +393,74 @@ const privacy = {
         linkBack: "← Retour au Support",
         content: `
             <h2>Politique de Confidentialité</h2>
-            <p class="updated"><strong>Mise à jour:</strong> 28 janvier 2026</p>
+            <p class="updated"><strong>Mise à jour:</strong> 2 février 2026</p>
+
             <h2>Aperçu</h2>
-            <p>StreetChef est une application de gestion de food truck. Nous respectons votre vie privée et protégeons vos données.</p>
-            <h2>Collecte de Données</h2>
-            <p>StreetChef est conçu avec la confidentialité à l'esprit:</p>
+            <p>Street Chef est une application de gestion de food truck. Nous respectons votre vie privée et protégeons vos données personnelles.</p>
+
+            <h2>Mode Hors Ligne</h2>
+            <p>Street Chef fonctionne <strong>entièrement hors ligne</strong>. Toutes les données sont stockées localement sur votre appareil. Vous pouvez utiliser l'application sans compte ni connexion internet.</p>
+
+            <h2>Compte et Synchronisation d'Équipe</h2>
+            <p>Si vous choisissez de créer un compte et d'utiliser la <strong>synchronisation d'équipe</strong>, les données suivantes sont transmises et stockées sur des serveurs cloud:</p>
             <ul>
-                <li><strong>Toutes les données sont stockées localement</strong> sur votre appareil</li>
-                <li><strong>Aucune donnée n'est transmise</strong> à des serveurs externes</li>
-                <li><strong>Aucun service d'analyse ou de suivi</strong> n'est utilisé</li>
-                <li><strong>Aucun service tiers</strong> ne collecte vos informations</li>
+                <li><strong>Données d'authentification:</strong> adresse e-mail, mot de passe chiffré (géré par Firebase Authentication)</li>
+                <li><strong>Données commerciales:</strong> commandes, événements, noms et contacts clients, éléments du menu</li>
+                <li><strong>Données opérationnelles:</strong> sessions de travail, niveaux de bouteilles de gaz, journaux d'huile de friteuse</li>
+                <li><strong>Données d'équipe:</strong> noms des employés, rôles, appartenance à l'équipe</li>
+                <li><strong>Paramètres:</strong> nom de l'entreprise, préférences</li>
             </ul>
-            <h2>Quelles Données l'App Stocke</h2>
-            <p>L'application stocke les informations suivantes <strong>uniquement sur votre appareil</strong>:</p>
+            <p>Les données sont synchronisées via <strong>Google Firebase</strong> (Firestore) pour la collaboration en temps réel. La transmission utilise des connexions chiffrées (TLS/SSL).</p>
+
+            <h2>Services Tiers</h2>
+            <p>Lors de l'utilisation de la synchronisation, nous utilisons:</p>
             <ul>
-                <li>Commandes et détails des événements</li>
-                <li>Informations clients (noms, contacts)</li>
-                <li>Articles du menu et ingrédients</li>
-                <li>Enregistrements des sessions de travail</li>
-                <li>Suivi des bouteilles de gaz et équipements</li>
+                <li><strong>Google Firebase</strong> (authentification et base de données Firestore) — les données sont stockées sur les serveurs Google Cloud. Politique de confidentialité de Google: <a href="https://policies.google.com/privacy" style="color:#ff6b35">policies.google.com/privacy</a></li>
             </ul>
+            <p>Nous n'utilisons <strong>aucun</strong> service d'analyse, de publicité ou de suivi. Nous ne collectons <strong>pas</strong> de statistiques d'utilisation.</p>
+
+            <h2>Données que nous NE collectons PAS</h2>
+            <ul>
+                <li>Données de localisation ou coordonnées GPS</li>
+                <li>Identifiants d'appareil</li>
+                <li>Analyses d'utilisation ou données comportementales</li>
+                <li>Identifiants publicitaires</li>
+                <li>Contacts, photos ou autres fichiers personnels</li>
+                <li>Informations de paiement ou financières</li>
+            </ul>
+
+            <h2>Stockage et Sécurité</h2>
+            <ul>
+                <li><strong>Données locales</strong> dans une base de données chiffrée sur votre appareil</li>
+                <li><strong>Données cloud</strong> sur les serveurs Google Cloud avec des règles de sécurité Firestore</li>
+                <li>Toutes les communications via chiffrement TLS/SSL</li>
+                <li>Les mots de passe ne sont jamais stockés en clair</li>
+            </ul>
+
             <h2>Partage des Données</h2>
-            <p>Nous ne partageons, vendons ou transférons <strong>pas</strong> vos données à des tiers.</p>
-            <h2>Suppression des Données</h2>
-            <p>Vous pouvez supprimer toutes les données en supprimant les entrées dans l'app ou en désinstallant l'application.</p>
+            <p>Nous ne vendons, louons ou partageons <strong>pas</strong> vos données avec des tiers à des fins publicitaires. Vos données ne sont accessibles qu'aux membres de votre équipe que vous invitez.</p>
+
+            <h2>Conservation et Suppression</h2>
+            <ul>
+                <li><strong>Données locales:</strong> supprimées en effaçant les enregistrements ou en désinstallant l'app</li>
+                <li><strong>Données cloud:</strong> vous pouvez demander la suppression complète en nous contactant. La suppression du compte entraîne la suppression de toutes les données associées</li>
+            </ul>
+
+            <h2>Vos Droits</h2>
+            <ul>
+                <li>Utiliser l'app entièrement hors ligne sans compte</li>
+                <li>Demander l'accès à vos données personnelles</li>
+                <li>Demander la suppression de votre compte et données</li>
+                <li>Exporter vos données</li>
+                <li>Retirer votre consentement à la synchronisation cloud à tout moment</li>
+            </ul>
+
+            <h2>Confidentialité des Enfants</h2>
+            <p>Street Chef n'est pas destiné aux enfants de moins de 13 ans.</p>
+
+            <h2>Modifications de la Politique</h2>
+            <p>Nous pouvons mettre à jour cette politique. Les changements importants seront communiqués via l'app ou notre site web.</p>
+
             <h2>Contactez-nous</h2>
             <p><strong>Email:</strong> 7715582@gmail.com</p>
         `
@@ -255,8 +479,7 @@ function setLang(lang) {
 const savedLang = localStorage.getItem('streetchef-lang');
 const browserLang = navigator.language.slice(0, 2);
 const supportedLangs = ['en', 'ru', 'es', 'de', 'fr'];
-const defaultLang = savedLang || (supportedLangs.includes(browserLang) ? browserLang : 'en');
-setLang(defaultLang);
+setLang(savedLang || (supportedLangs.includes(browserLang) ? browserLang : 'en'));
 </script>
 </body>
 </html>
