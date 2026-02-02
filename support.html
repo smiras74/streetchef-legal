@@ -57,16 +57,24 @@
             font-size: 16px;
         }
         input:focus, textarea:focus, select:focus { outline: none; border-color: #ff6b35; }
-        input[type="file"] { padding: 10px; cursor: pointer; }
-        input[type="file"]::file-selector-button {
-            background: #ff6b35;
-            color: #fff;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
+        input[type="file"] { display: none; }
+        .file-upload-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,107,53,0.15);
+            color: #ff6b35;
+            border: 1px dashed rgba(255,107,53,0.4);
+            padding: 12px 20px;
+            border-radius: 10px;
             cursor: pointer;
-            margin-right: 10px;
+            font-size: 15px;
+            width: 100%;
+            justify-content: center;
+            transition: all 0.2s;
         }
+        .file-upload-btn:hover { background: rgba(255,107,53,0.25); border-color: #ff6b35; }
+        .file-name { color: #8b949e; font-size: 0.85em; margin-top: 6px; }
         textarea { min-height: 120px; resize: vertical; }
         select { cursor: pointer; }
         select option { background: #1a1f35; color: #fff; }
@@ -130,8 +138,12 @@
                     <textarea name="message" required id="inputMessage"></textarea>
                 </div>
                 <div class="form-group">
-                    <label id="labelAttachment">Attachment (optional)</label>
-                    <input type="file" name="attachment" id="inputAttachment" accept="image/*,.pdf">
+                    <label id="labelAttachment">Screenshot (optional)</label>
+                    <div class="file-upload-btn" id="fileUploadBtn" onclick="document.getElementById('inputAttachment').click()">
+                        📎 <span id="fileUploadText">Choose file...</span>
+                    </div>
+                    <div class="file-name" id="fileName"></div>
+                    <input type="file" name="attachment" id="inputAttachment" accept="image/*,.pdf" onchange="showFileName(this)">
                 </div>
                 <button type="submit" id="btnSubmit">Send Message</button>
             </form>
@@ -157,6 +169,8 @@ const translations = {
         labelTopic: "Topic",
         labelMessage: "Message",
         labelAttachment: "Screenshot (optional)",
+        fileUploadText: "Choose file...",
+        fileSelected: "Selected:",
         btnSubmit: "Send Message",
         faqTitle: "❓ FAQ",
         linkPrivacy: "Privacy Policy",
@@ -179,6 +193,8 @@ const translations = {
         labelTopic: "Тема",
         labelMessage: "Сообщение",
         labelAttachment: "Скриншот (необязательно)",
+        fileUploadText: "Выбрать файл...",
+        fileSelected: "Выбрано:",
         btnSubmit: "Отправить",
         faqTitle: "❓ Частые вопросы",
         linkPrivacy: "Политика конфиденциальности",
@@ -201,6 +217,8 @@ const translations = {
         labelTopic: "Tema",
         labelMessage: "Mensaje",
         labelAttachment: "Captura de pantalla (opcional)",
+        fileUploadText: "Elegir archivo...",
+        fileSelected: "Seleccionado:",
         btnSubmit: "Enviar Mensaje",
         faqTitle: "❓ Preguntas Frecuentes",
         linkPrivacy: "Política de Privacidad",
@@ -223,6 +241,8 @@ const translations = {
         labelTopic: "Thema",
         labelMessage: "Nachricht",
         labelAttachment: "Screenshot (optional)",
+        fileUploadText: "Datei auswählen...",
+        fileSelected: "Ausgewählt:",
         btnSubmit: "Nachricht senden",
         faqTitle: "❓ Häufige Fragen",
         linkPrivacy: "Datenschutzrichtlinie",
@@ -245,6 +265,8 @@ const translations = {
         labelTopic: "Sujet",
         labelMessage: "Message",
         labelAttachment: "Capture d'écran (facultatif)",
+        fileUploadText: "Choisir un fichier...",
+        fileSelected: "Sélectionné:",
         btnSubmit: "Envoyer le Message",
         faqTitle: "❓ Questions Fréquentes",
         linkPrivacy: "Politique de Confidentialité",
@@ -270,6 +292,7 @@ function setLang(lang) {
     document.getElementById('labelTopic').textContent = t.labelTopic;
     document.getElementById('labelMessage').textContent = t.labelMessage;
     document.getElementById('labelAttachment').textContent = t.labelAttachment;
+    document.getElementById('fileUploadText').textContent = t.fileUploadText;
     document.getElementById('btnSubmit').textContent = t.btnSubmit;
     document.getElementById('faqTitle').textContent = t.faqTitle;
     document.getElementById('linkPrivacy').textContent = t.linkPrivacy;
@@ -291,6 +314,19 @@ function setLang(lang) {
     });
     
     localStorage.setItem('streetchef-lang', lang);
+    currentLang = lang;
+}
+
+let currentLang = 'en';
+
+function showFileName(input) {
+    const nameEl = document.getElementById('fileName');
+    const t = translations[currentLang];
+    if (input.files && input.files[0]) {
+        nameEl.textContent = t.fileSelected + ' ' + input.files[0].name;
+    } else {
+        nameEl.textContent = '';
+    }
 }
 
 // Detect language
