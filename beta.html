@@ -42,7 +42,7 @@
         /* Language switcher */
         .lang-switch {
             position: absolute; top: 20px; right: 20px;
-            display: flex; gap: 6px;
+            display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end;
         }
         .lang-switch button {
             background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
@@ -128,7 +128,10 @@
         <div class="lang-switch">
             <button onclick="setLang('en')">🇬🇧 EN</button>
             <button onclick="setLang('ru')">🇷🇺 RU</button>
+            <button onclick="setLang('es')">🇪🇸 ES</button>
+            <button onclick="setLang('de')">🇩🇪 DE</button>
             <button onclick="setLang('fr')">🇫🇷 FR</button>
+            <button onclick="setLang('it')">🇮🇹 IT</button>
         </div>
         <img src="icon.png" alt="StreetChef" class="logo-icon">
         <div class="badge">BETA</div>
@@ -200,7 +203,7 @@
                     <li>Run a work session: start shift, log sales, end shift</li>
                     <li>Use checklists before and after an event</li>
                     <li>Track gas cylinders and fryer oil in Technical Logs</li>
-                    <li>Switch languages in Settings (EN, RU, DE, ES, FR)</li>
+                    <li>Switch languages in Settings (EN, RU, DE, ES, FR, IT)</li>
                     <li>Test offline: turn off Wi-Fi and use all features</li>
                 </ul>
             </div>
@@ -263,7 +266,7 @@
                 "Run a work session: start shift, log sales, end shift",
                 "Use checklists before and after an event",
                 "Track gas cylinders and fryer oil in Technical Logs",
-                "Switch languages in Settings (EN, RU, DE, ES, FR)",
+                "Switch languages in Settings (EN, RU, DE, ES, FR, IT)",
                 "Test offline: turn off Wi-Fi and use all features"
             ],
             s5Title: "Send Feedback",
@@ -302,7 +305,7 @@
                 "Проведите рабочую смену: старт, запись продаж, завершение",
                 "Используйте чеклисты до и после мероприятия",
                 "Отслеживайте газовые баллоны и масло фритюра в Техжурнале",
-                "Переключите язык в Настройках (EN, RU, DE, ES, FR)",
+                "Переключите язык в Настройках (EN, RU, DE, ES, FR, IT)",
                 "Тест офлайн: выключите Wi-Fi и проверьте все функции"
             ],
             s5Title: "Обратная связь",
@@ -341,7 +344,7 @@
                 "Lancez une session de travail : démarrer, enregistrer les ventes, terminer",
                 "Utilisez les checklists avant et après un événement",
                 "Suivez les bouteilles de gaz et l'huile de friture dans le Journal technique",
-                "Changez la langue dans les Paramètres (EN, RU, DE, ES, FR)",
+                "Changez la langue dans les Paramètres (EN, RU, DE, ES, FR, IT)",
                 "Test hors ligne : désactivez le Wi-Fi et testez toutes les fonctions"
             ],
             s5Title: "Envoyez vos retours",
@@ -355,6 +358,123 @@
             ],
             footerVersion: "v1.2.0 Bêta",
             fMarketing: "Accueil", fVersions: "Versions", fSupport: "Support"
+        },
+        es: {
+            backText: "Volver",
+            headerSub: "Gracias por probar nuestra aplicacion. Aqui tienes todo lo necesario para empezar.",
+            s1Title: "Instalar via TestFlight",
+            s1Text: "TestFlight es la aplicacion oficial de Apple para probar versiones beta. Instala TestFlight desde la App Store y luego pulsa el boton de abajo para unirte a la beta de StreetChef.",
+            tfBtn: "Unirse a la beta de TestFlight",
+            s2Title: "Que es StreetChef?",
+            s2Text: "StreetChef es una aplicacion integral para operadores de food trucks. Combina planificacion de eventos, CRM de clientes, gestion de menu, control de inventario, presupuestos PDF profesionales y registro de sesiones de trabajo — todo funcionando 100% sin conexion.",
+            s3Title: "Novedades en v1.2.0",
+            s3h1: "Gestion de personal",
+            s3l1: ["Asignar empleados a eventos", "Seguimiento de disponibilidad (Puede / No puede)", "Seccion visual de personal con avatares", "Notificaciones push al asignar"],
+            s3h2: "Integracion con calendario",
+            s3l2: ["Agregar eventos al Calendario iOS", "Recordatorios automaticos 1 hora antes", "Eliminacion automatica al cancelar"],
+            s3h3: "Menu y presupuestos",
+            s3l3: ["Edicion por lotes del menu (seleccionar, duplicar, eliminar)", "Lista de compras inteligente con conversion de unidades", "Conjuntos de platos para crear menus rapidamente"],
+            s4Title: "Que probar",
+            s4list: [
+                "Crea algunos pedidos de prueba con diferentes estados (Reservado, Confirmado, Completado)",
+                "Agrega platos al menu y crea un presupuesto — genera un PDF",
+                "Agrega empleados y asignalos a pedidos",
+                "Intenta agregar eventos a tu Calendario",
+                "Inicia una sesion de trabajo: comenzar turno, registrar ventas, finalizar",
+                "Usa las checklists antes y despues de un evento",
+                "Registra las bombonas de gas y el aceite de freidora en el Diario tecnico",
+                "Cambia el idioma en Ajustes (EN, RU, DE, ES, FR, IT)",
+                "Prueba sin conexion: desactiva el Wi-Fi y prueba todas las funciones"
+            ],
+            s5Title: "Enviar comentarios",
+            s5Text: "Encontraste un error? Tienes una idea? Nos encantaria saberlo. Agita tu telefono en la app o pulsa \"Enviar comentarios\" en TestFlight, o escribenos:",
+            s6Title: "Limitaciones conocidas",
+            s6list: [
+                "La sincronizacion de equipo (multi-dispositivo) esta en pruebas — pueden haber retrasos",
+                "Las notificaciones push requieren iniciar sesion con una cuenta de equipo",
+                "Las plantillas PDF usan un diseno estandar — personalizacion disponible pronto",
+                "El panel de analiticas esta planificado para la proxima version"
+            ],
+            footerVersion: "v1.2.0 Beta",
+            fMarketing: "Inicio", fVersions: "Versiones", fSupport: "Soporte"
+        },
+        de: {
+            backText: "Zurueck",
+            headerSub: "Vielen Dank fuer das Testen unserer App! Hier ist alles, was Sie fuer den Start brauchen.",
+            s1Title: "Installation ueber TestFlight",
+            s1Text: "TestFlight ist Apples offizielle App zum Testen von Beta-Versionen. Installieren Sie TestFlight aus dem App Store und tippen Sie dann auf die Schaltflaeche unten, um der StreetChef-Beta beizutreten.",
+            tfBtn: "TestFlight-Beta beitreten",
+            s2Title: "Was ist StreetChef?",
+            s2Text: "StreetChef ist eine All-in-One-Management-App fuer Food-Truck-Betreiber. Sie kombiniert Eventplanung, Kunden-CRM, Menueverwaltung, Bestandskontrolle, professionelle PDF-Angebote und Schichtprotokollierung — alles funktioniert 100% offline.",
+            s3Title: "Neu in v1.2.0",
+            s3h1: "Personalverwaltung",
+            s3l1: ["Mitarbeiter zu Events zuweisen", "Verfuegbarkeit verfolgen (Kann / Kann nicht)", "Visueller Personalbereich mit Avatar-Vorschau", "Push-Benachrichtigungen bei Zuweisungen"],
+            s3h2: "Kalender-Integration",
+            s3l2: ["Events zum iOS-Kalender hinzufuegen", "Automatische Erinnerung 1 Stunde vorher", "Automatische Entfernung bei Stornierung"],
+            s3h3: "Menue und Angebote",
+            s3l3: ["Stapelbearbeitung des Menues (auswaehlen, duplizieren, loeschen)", "Intelligente Einkaufsliste mit Einheitenumrechnung", "Gerichtesets fuer schnelle Menueerstellung"],
+            s4Title: "Was testen",
+            s4list: [
+                "Erstellen Sie einige Testauftraege mit verschiedenen Status (Gebucht, Bestaetigt, Abgeschlossen)",
+                "Fuegen Sie Menuepositionen hinzu und erstellen Sie ein Angebot — PDF generieren",
+                "Fuegen Sie Mitarbeiter hinzu und weisen Sie sie Auftraegen zu",
+                "Versuchen Sie, Events zu Ihrem Kalender hinzuzufuegen",
+                "Fuehren Sie eine Arbeitsschicht durch: Start, Verkaeufe erfassen, beenden",
+                "Nutzen Sie Checklisten vor und nach einem Event",
+                "Verfolgen Sie Gasflaschen und Fritteusenoel im Technik-Journal",
+                "Wechseln Sie die Sprache in den Einstellungen (EN, RU, DE, ES, FR, IT)",
+                "Offline-Test: WLAN ausschalten und alle Funktionen testen"
+            ],
+            s5Title: "Feedback senden",
+            s5Text: "Einen Fehler gefunden? Eine Idee? Wir freuen uns ueber Ihr Feedback. Schuetteln Sie Ihr Telefon in der App oder tippen Sie auf \"Beta-Feedback senden\" in TestFlight, oder schreiben Sie uns:",
+            s6Title: "Bekannte Einschraenkungen",
+            s6list: [
+                "Team-Synchronisation (Multi-Geraet) ist in der Testphase — Verzoegerungen moeglich",
+                "Push-Benachrichtigungen erfordern die Anmeldung mit einem Team-Konto",
+                "PDF-Vorlagen verwenden ein Standarddesign — individuelle Gestaltung kommt bald",
+                "Das Analyse-Dashboard ist fuer die naechste Version geplant"
+            ],
+            footerVersion: "v1.2.0 Beta",
+            fMarketing: "Start", fVersions: "Versionen", fSupport: "Support"
+        },
+        it: {
+            backText: "Indietro",
+            headerSub: "Grazie per testare la nostra app! Ecco tutto il necessario per iniziare.",
+            s1Title: "Installa tramite TestFlight",
+            s1Text: "TestFlight e l'app ufficiale di Apple per testare le versioni beta. Installa TestFlight dall'App Store, poi tocca il pulsante qui sotto per unirti alla beta di StreetChef.",
+            tfBtn: "Unisciti alla beta TestFlight",
+            s2Title: "Cos'e StreetChef?",
+            s2Text: "StreetChef e un'app di gestione completa per operatori di food truck. Combina pianificazione eventi, CRM clienti, gestione menu, controllo inventario, preventivi PDF professionali e registro delle sessioni di lavoro — tutto funzionante 100% offline.",
+            s3Title: "Novita nella v1.2.0",
+            s3h1: "Gestione del personale",
+            s3l1: ["Assegnare dipendenti agli eventi", "Monitoraggio disponibilita (Disponibile / Non disponibile)", "Sezione personale visiva con anteprima avatar", "Notifiche push sulle assegnazioni"],
+            s3h2: "Integrazione calendario",
+            s3l2: ["Aggiungere eventi al Calendario iOS", "Promemoria automatici 1 ora prima", "Rimozione automatica in caso di annullamento"],
+            s3h3: "Menu e preventivi",
+            s3l3: ["Modifica menu in blocco (seleziona, duplica, elimina)", "Lista della spesa intelligente con conversione unita", "Set di piatti per creare menu velocemente"],
+            s4Title: "Cosa testare",
+            s4list: [
+                "Crea alcuni ordini di prova con diversi stati (Prenotato, Confermato, Completato)",
+                "Aggiungi piatti al menu e crea un preventivo — genera un PDF",
+                "Aggiungi dipendenti e assegnali agli ordini",
+                "Prova ad aggiungere eventi al tuo Calendario",
+                "Avvia una sessione di lavoro: inizia turno, registra vendite, termina",
+                "Usa le checklist prima e dopo un evento",
+                "Registra le bombole gas e l'olio friggitrice nel Diario tecnico",
+                "Cambia lingua nelle Impostazioni (EN, RU, DE, ES, FR, IT)",
+                "Test offline: disattiva il Wi-Fi e prova tutte le funzioni"
+            ],
+            s5Title: "Invia feedback",
+            s5Text: "Hai trovato un bug? Hai un'idea? Ci piacerebbe sentire la tua opinione. Scuoti il telefono nell'app o tocca \"Invia feedback beta\" in TestFlight, oppure scrivici:",
+            s6Title: "Limitazioni note",
+            s6list: [
+                "La sincronizzazione di team (multi-dispositivo) e in fase di test — possibili ritardi",
+                "Le notifiche push richiedono l'accesso con un account di team",
+                "I modelli PDF utilizzano un design standard — personalizzazione in arrivo",
+                "La dashboard analitica e prevista per la prossima versione"
+            ],
+            footerVersion: "v1.2.0 Beta",
+            fMarketing: "Home", fVersions: "Versioni", fSupport: "Supporto"
         }
     };
 
@@ -386,7 +506,10 @@
         if (saved && i18n[saved]) { setLang(saved); return; }
         const nav = (navigator.language || '').toLowerCase();
         if (nav.startsWith('ru')) setLang('ru');
+        else if (nav.startsWith('es')) setLang('es');
+        else if (nav.startsWith('de')) setLang('de');
         else if (nav.startsWith('fr')) setLang('fr');
+        else if (nav.startsWith('it')) setLang('it');
         else setLang('en');
     })();
     </script>
