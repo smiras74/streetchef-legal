@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreetChef — Beta Testing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --accent: #ff6b35;
+            --accent-light: #ff8f5a;
+            --bg-dark: #0a0c10;
+            --bg-card: rgba(255,255,255,0.03);
+            --text-primary: #fff;
+            --text-secondary: #8b949e;
+            --border: rgba(255,255,255,0.08);
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        header {
+            padding: 20px 20px 40px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            background: radial-gradient(ellipse at top, #1a1f35 0%, var(--bg-dark) 70%);
+            position: relative;
+        }
+        .back-link {
+            position: absolute; top: 20px; left: 20px;
+            display: inline-flex; align-items: center; gap: 6px;
+            color: var(--text-secondary); text-decoration: none; font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--accent); }
+        /* Language switcher */
+        .lang-switch {
+            position: absolute; top: 20px; right: 20px;
+            display: flex; gap: 6px;
+        }
+        .lang-switch button {
+            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-secondary); padding: 6px 12px; border-radius: 8px;
+            cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.2s;
+        }
+        .lang-switch button.active,
+        .lang-switch button:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+        .logo-icon {
+            width: 80px; height: 80px; border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(255,107,53,0.2); margin-bottom: 16px;
+        }
+        header h1 { font-size: 2rem; font-weight: 800; margin-bottom: 6px; }
+        .badge {
+            display: inline-block; background: var(--accent); color: #fff;
+            padding: 4px 14px; border-radius: 20px; font-size: 0.8rem;
+            font-weight: 700; margin-bottom: 12px; letter-spacing: 0.5px;
+        }
+        header p { color: var(--text-secondary); max-width: 500px; margin: 0 auto; }
+
+        /* Content */
+        .content { max-width: 700px; margin: 0 auto; padding: 40px 20px 80px; }
+
+        .section { margin-bottom: 40px; }
+        .section h2 {
+            font-size: 1.3rem; font-weight: 700; margin-bottom: 16px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .section h2 .icon { font-size: 1.4rem; }
+
+        .card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 16px; padding: 24px; margin-bottom: 16px;
+        }
+        .card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: var(--accent-light); }
+        .card p, .card li { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; }
+        .card ul { list-style: none; padding: 0; }
+        .card ul li { padding: 6px 0; padding-left: 24px; position: relative; }
+        .card ul li::before {
+            content: '→'; position: absolute; left: 0; color: var(--accent);
+            font-weight: 700;
+        }
+        /* TestFlight button */
+        .tf-btn {
+            display: inline-flex; align-items: center; gap: 12px;
+            background: #fff; color: #000; padding: 16px 32px;
+            border-radius: 14px; text-decoration: none; font-weight: 700;
+            font-size: 1.05rem; transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(255,255,255,0.1);
+        }
+        .tf-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,255,255,0.15); }
+        .tf-btn svg { width: 22px; height: 22px; }
+        .tf-center { text-align: center; margin: 32px 0; }
+
+        .feedback-box {
+            background: rgba(255,107,53,0.08); border: 1px solid rgba(255,107,53,0.2);
+            border-radius: 16px; padding: 24px; text-align: center;
+        }
+        .feedback-box p { color: var(--text-secondary); margin-bottom: 12px; }
+        .feedback-box a { color: var(--accent); font-weight: 600; text-decoration: none; }
+        .feedback-box a:hover { text-decoration: underline; }
+
+        .version-tag {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(74,222,128,0.1); border: 1px solid rgba(74,222,128,0.2);
+            color: #4ade80; padding: 4px 12px; border-radius: 8px;
+            font-size: 0.8rem; font-weight: 600;
+        }
+
+        footer {
+            text-align: center; padding: 30px 20px;
+            border-top: 1px solid var(--border); color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        footer a { color: var(--text-secondary); text-decoration: none; margin: 0 10px; }
+        footer a:hover { color: var(--accent); }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="marketing.html" class="back-link">← <span id="backText">Back</span></a>
+        <div class="lang-switch">
+            <button onclick="setLang('en')">🇬🇧 EN</button>
+            <button onclick="setLang('ru')">🇷🇺 RU</button>
+            <button onclick="setLang('fr')">🇫🇷 FR</button>
+        </div>
+        <img src="icon.png" alt="StreetChef" class="logo-icon">
+        <div class="badge">BETA</div>
+        <h1>StreetChef</h1>
+        <p id="headerSub">Thank you for testing our app! Here's everything you need to get started.</p>
+    </header>
+
+    <div class="content">
+        <!-- Install section -->
+        <div class="section">
+            <h2><span class="icon">📲</span> <span id="s1Title">Install via TestFlight</span></h2>
+            <div class="card">
+                <p id="s1Text">TestFlight is Apple's official app for testing beta versions. Install TestFlight from the App Store, then tap the button below to join the StreetChef beta.</p>
+            </div>
+            <div class="tf-center">
+                <a href="https://testflight.apple.com/join/vvVMT29B" class="tf-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    <span id="tfBtn">Join TestFlight Beta</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- What is StreetChef -->
+        <div class="section">
+            <h2><span class="icon">🚚</span> <span id="s2Title">What is StreetChef?</span></h2>
+            <div class="card">
+                <p id="s2Text">StreetChef is an all-in-one management app for food truck operators. It combines event scheduling, client CRM, menu management, inventory tracking, professional PDF quotes, and work session logging — all working 100% offline.</p>
+            </div>
+        </div>
+
+        <!-- Current version -->
+        <div class="section">
+            <h2><span class="icon">🆕</span> <span id="s3Title">What's New in v1.2.0</span></h2>
+            <div class="card">
+                <h3 id="s3h1">Staff Management</h3>
+                <ul id="s3l1">
+                    <li>Assign employees to events</li>
+                    <li>Staff availability tracking (Can work / Cannot work)</li>
+                    <li>Visual staff section with avatar previews</li>
+                    <li>Push notifications on assignment changes</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3 id="s3h2">Calendar Integration</h3>
+                <ul id="s3l2">
+                    <li>Add events to iOS Calendar</li>
+                    <li>Automatic reminders 1 hour before</li>
+                    <li>Auto-remove on cancellation</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3 id="s3h3">Menu & Quotes</h3>
+                <ul id="s3l3">
+                    <li>Batch menu editing (select, duplicate, delete)</li>
+                    <li>Smart shopping list with unit conversion</li>
+                    <li>Dish sets for quick menu building</li>
+                </ul>
+            </div>
+        </div>
+        <!-- What to test -->
+        <div class="section">
+            <h2><span class="icon">🧪</span> <span id="s4Title">What to Test</span></h2>
+            <div class="card">
+                <ul id="s4list">
+                    <li>Create a few test orders with different statuses (Booked, Confirmed, Completed)</li>
+                    <li>Add menu positions and build a quote — generate PDF</li>
+                    <li>Add employees and assign them to orders</li>
+                    <li>Try adding events to your Calendar</li>
+                    <li>Run a work session: start shift, log sales, end shift</li>
+                    <li>Use checklists before and after an event</li>
+                    <li>Track gas cylinders and fryer oil in Technical Logs</li>
+                    <li>Switch languages in Settings (EN, RU, DE, ES, FR)</li>
+                    <li>Test offline: turn off Wi-Fi and use all features</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Feedback -->
+        <div class="section">
+            <h2><span class="icon">💬</span> <span id="s5Title">Send Feedback</span></h2>
+            <div class="feedback-box">
+                <p id="s5Text">Found a bug? Have an idea? We'd love to hear from you. Use the TestFlight feedback feature (shake your phone or tap "Send Beta Feedback" in TestFlight), or email us directly:</p>
+                <a href="mailto:streetchef.app@gmail.com?subject=[Beta Feedback] StreetChef v1.2.0">streetchef.app@gmail.com</a>
+            </div>
+        </div>
+
+        <!-- Known limitations -->
+        <div class="section">
+            <h2><span class="icon">⚠️</span> <span id="s6Title">Known Limitations</span></h2>
+            <div class="card">
+                <ul id="s6list">
+                    <li>Team sync (multi-device) is in early testing — some sync delays may occur</li>
+                    <li>Push notifications require signing in with a team account</li>
+                    <li>PDF templates use a default design — custom branding coming soon</li>
+                    <li>Analytics dashboard is planned for the next version</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 StreetChef. <span id="footerVersion"></span></p>
+        <div>
+            <a href="marketing.html" id="fMarketing">Home</a>
+            <a href="versions.html" id="fVersions">Changelog</a>
+            <a href="support.html" id="fSupport">Support</a>
+        </div>
+    </footer>
+    <script>
+    const i18n = {
+        en: {
+            backText: "Back",
+            headerSub: "Thank you for testing our app! Here's everything you need to get started.",
+            s1Title: "Install via TestFlight",
+            s1Text: "TestFlight is Apple's official app for testing beta versions. Install TestFlight from the App Store, then tap the button below to join the StreetChef beta.",
+            tfBtn: "Join TestFlight Beta",
+            s2Title: "What is StreetChef?",
+            s2Text: "StreetChef is an all-in-one management app for food truck operators. It combines event scheduling, client CRM, menu management, inventory tracking, professional PDF quotes, and work session logging — all working 100% offline.",
+            s3Title: "What's New in v1.2.0",
+            s3h1: "Staff Management",
+            s3l1: ["Assign employees to events", "Staff availability tracking (Can work / Cannot work)", "Visual staff section with avatar previews", "Push notifications on assignment changes"],
+            s3h2: "Calendar Integration",
+            s3l2: ["Add events to iOS Calendar", "Automatic reminders 1 hour before", "Auto-remove on cancellation"],
+            s3h3: "Menu & Quotes",
+            s3l3: ["Batch menu editing (select, duplicate, delete)", "Smart shopping list with unit conversion", "Dish sets for quick menu building"],
+            s4Title: "What to Test",
+            s4list: [
+                "Create a few test orders with different statuses (Booked, Confirmed, Completed)",
+                "Add menu positions and build a quote — generate PDF",
+                "Add employees and assign them to orders",
+                "Try adding events to your Calendar",
+                "Run a work session: start shift, log sales, end shift",
+                "Use checklists before and after an event",
+                "Track gas cylinders and fryer oil in Technical Logs",
+                "Switch languages in Settings (EN, RU, DE, ES, FR)",
+                "Test offline: turn off Wi-Fi and use all features"
+            ],
+            s5Title: "Send Feedback",
+            s5Text: 'Found a bug? Have an idea? We\'d love to hear from you. Shake your phone in the app or tap "Send Beta Feedback" in TestFlight, or email us:',
+            s6Title: "Known Limitations",
+            s6list: [
+                "Team sync (multi-device) is in early testing — some delays may occur",
+                "Push notifications require signing in with a team account",
+                "PDF templates use a default design — custom branding coming soon",
+                "Analytics dashboard is planned for the next version"
+            ],
+            footerVersion: "v1.2.0 Beta",
+            fMarketing: "Home", fVersions: "Changelog", fSupport: "Support"
+        },
+        ru: {
+            backText: "Назад",
+            headerSub: "Спасибо, что тестируете наше приложение! Вот всё, что нужно для начала.",
+            s1Title: "Установка через TestFlight",
+            s1Text: "TestFlight — официальное приложение Apple для тестирования бета-версий. Установите TestFlight из App Store, затем нажмите кнопку ниже, чтобы присоединиться к бета-тесту StreetChef.",
+            tfBtn: "Присоединиться к бете",
+            s2Title: "Что такое StreetChef?",
+            s2Text: "StreetChef — универсальное приложение для управления фудтраком. Планирование событий, CRM клиентов, управление меню, складской учёт, генерация PDF-предложений и журнал смен — всё работает 100% офлайн.",
+            s3Title: "Что нового в v1.2.0",
+            s3h1: "Управление персоналом",
+            s3l1: ["Назначение сотрудников на события", "Отслеживание доступности (Могу / Не могу)", "Визуальный блок персонала с аватарами", "Push-уведомления при назначении"],
+            s3h2: "Интеграция с календарём",
+            s3l2: ["Добавление событий в Календарь iOS", "Автоматические напоминания за 1 час", "Автоудаление при отмене заказа"],
+            s3h3: "Меню и расчёты",
+            s3l3: ["Пакетное редактирование меню (выбор, дублирование, удаление)", "Умный список закупок с конвертацией единиц", "Наборы блюд для быстрой сборки меню"],
+            s4Title: "Что тестировать",
+            s4list: [
+                "Создайте несколько тестовых заказов с разными статусами (Заявка, Подтверждён, Выполнен)",
+                "Добавьте позиции меню и сформируйте расчёт — сгенерируйте PDF",
+                "Добавьте сотрудников и назначьте их на заказы",
+                "Попробуйте добавить события в Календарь",
+                "Проведите рабочую смену: старт, запись продаж, завершение",
+                "Используйте чеклисты до и после мероприятия",
+                "Отслеживайте газовые баллоны и масло фритюра в Техжурнале",
+                "Переключите язык в Настройках (EN, RU, DE, ES, FR)",
+                "Тест офлайн: выключите Wi-Fi и проверьте все функции"
+            ],
+            s5Title: "Обратная связь",
+            s5Text: "Нашли баг? Есть идея? Мы будем рады вашему мнению. Встряхните телефон в приложении или нажмите «Отправить отзыв» в TestFlight, или напишите нам:",
+            s6Title: "Известные ограничения",
+            s6list: [
+                "Командная синхронизация (multi-device) в раннем тестировании — возможны задержки",
+                "Push-уведомления требуют входа в командный аккаунт",
+                "PDF-шаблоны используют стандартный дизайн — брендирование скоро",
+                "Аналитический дашборд запланирован на следующую версию"
+            ],
+            footerVersion: "v1.2.0 Бета",
+            fMarketing: "Главная", fVersions: "Версии", fSupport: "Поддержка"
+        },
+        fr: {
+            backText: "Retour",
+            headerSub: "Merci de tester notre application ! Voici tout ce qu'il faut pour commencer.",
+            s1Title: "Installer via TestFlight",
+            s1Text: "TestFlight est l'application officielle d'Apple pour tester les versions bêta. Installez TestFlight depuis l'App Store, puis appuyez sur le bouton ci-dessous pour rejoindre la bêta StreetChef.",
+            tfBtn: "Rejoindre la bêta TestFlight",
+            s2Title: "Qu'est-ce que StreetChef ?",
+            s2Text: "StreetChef est une application tout-en-un pour les opérateurs de food trucks. Elle combine la planification d'événements, le CRM clients, la gestion des menus, le suivi des stocks, les devis PDF professionnels et le journal des sessions — le tout fonctionnant 100% hors ligne.",
+            s3Title: "Nouveautés v1.2.0",
+            s3h1: "Gestion du personnel",
+            s3l1: ["Affectation des employés aux événements", "Suivi de disponibilité (Disponible / Indisponible)", "Section visuelle avec aperçu des avatars", "Notifications push lors des affectations"],
+            s3h2: "Intégration calendrier",
+            s3l2: ["Ajout d'événements au Calendrier iOS", "Rappels automatiques 1 heure avant", "Suppression automatique en cas d'annulation"],
+            s3h3: "Menu et devis",
+            s3l3: ["Édition groupée du menu (sélection, duplication, suppression)", "Liste de courses intelligente avec conversion d'unités", "Ensembles de plats pour construction rapide de menus"],
+            s4Title: "Quoi tester",
+            s4list: [
+                "Créez quelques commandes test avec différents statuts (Réservé, Confirmé, Terminé)",
+                "Ajoutez des plats au menu et créez un devis — générez un PDF",
+                "Ajoutez des employés et affectez-les aux commandes",
+                "Essayez d'ajouter des événements à votre Calendrier",
+                "Lancez une session de travail : démarrer, enregistrer les ventes, terminer",
+                "Utilisez les checklists avant et après un événement",
+                "Suivez les bouteilles de gaz et l'huile de friture dans le Journal technique",
+                "Changez la langue dans les Paramètres (EN, RU, DE, ES, FR)",
+                "Test hors ligne : désactivez le Wi-Fi et testez toutes les fonctions"
+            ],
+            s5Title: "Envoyez vos retours",
+            s5Text: "Vous avez trouvé un bug ? Une idée ? Nous serions ravis de vous entendre. Secouez votre téléphone dans l'app ou appuyez sur « Envoyer un commentaire » dans TestFlight, ou écrivez-nous :",
+            s6Title: "Limitations connues",
+            s6list: [
+                "La synchronisation d'équipe (multi-appareil) est en test — des délais sont possibles",
+                "Les notifications push nécessitent une connexion à un compte d'équipe",
+                "Les modèles PDF utilisent un design standard — la personnalisation arrive bientôt",
+                "Le tableau de bord analytique est prévu pour la prochaine version"
+            ],
+            footerVersion: "v1.2.0 Bêta",
+            fMarketing: "Accueil", fVersions: "Versions", fSupport: "Support"
+        }
+    };
+
+    function setLang(lang) {
+        const d = i18n[lang];
+        if (!d) return;
+        // Simple text
+        ['backText','headerSub','s1Title','s1Text','tfBtn','s2Title','s2Text',
+         's3Title','s3h1','s3h2','s3h3','s4Title','s5Title','s5Text','s6Title',
+         'footerVersion','fMarketing','fVersions','fSupport'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el && d[id]) el.textContent = d[id];
+        });
+        // Lists
+        ['s3l1','s3l2','s3l3','s4list','s6list'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el && d[id]) el.innerHTML = d[id].map(t => `<li>${t}</li>`).join('');
+        });
+        // Active button
+        document.querySelectorAll('.lang-switch button').forEach(btn => {
+            btn.classList.toggle('active', btn.textContent.includes(lang.toUpperCase()));
+        });
+        localStorage.setItem('streetchef-beta-lang', lang);
+    }
+
+    // Auto-detect
+    (function() {
+        const saved = localStorage.getItem('streetchef-beta-lang');
+        if (saved && i18n[saved]) { setLang(saved); return; }
+        const nav = (navigator.language || '').toLowerCase();
+        if (nav.startsWith('ru')) setLang('ru');
+        else if (nav.startsWith('fr')) setLang('fr');
+        else setLang('en');
+    })();
+    </script>
+</body>
+</html>
