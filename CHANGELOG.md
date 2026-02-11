@@ -2,6 +2,14 @@
 
 All notable changes to StreetChef marketing site.
 
+## [1.3.0] - 2026-02-11
+
+### Added
+- **Version 1.3.0 release notes** on versions.html — Order Calendar and Settings fix
+- Italian (`it`) language block fixed — was placed outside `versions` object (syntax error)
+
+---
+
 ## [1.2.0] - 2025-01-29
 
 ### Fixed
