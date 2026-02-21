@@ -236,11 +236,12 @@
     <main id="versionsContainer"></main>
 
     <footer>
-        <p>© 2025 Street Chef. All rights reserved.</p>
+        <p>© 2026 Street Chef. All rights reserved.</p>
         <div>
             <a href="marketing.html" id="linkHome">Home</a>
             <a href="support.html" id="linkSupport">Support</a>
             <a href="privacy.html" id="linkPrivacy">Privacy Policy</a>
+            <a href="terms.html" id="linkTerms">Terms of Use</a>
         </div>
     </footer>
 
@@ -705,12 +706,12 @@
         };
 
         const ui = {
-            en: { back: "Back", title: "Version History", subtitle: "What's new in Street Chef", home: "Home", support: "Support", privacy: "Privacy Policy", new: "New", improved: "Improved", fixed: "Fixed", latest: "Latest" },
-            ru: { back: "Назад", title: "История версий", subtitle: "Что нового в Street Chef", home: "Главная", support: "Поддержка", privacy: "Конфиденциальность", new: "Новое", improved: "Улучшено", fixed: "Исправлено", latest: "Актуально" },
-            es: { back: "Volver", title: "Historial de versiones", subtitle: "Novedades en Street Chef", home: "Inicio", support: "Soporte", privacy: "Privacidad", new: "Nuevo", improved: "Mejorado", fixed: "Corregido", latest: "Último" },
-            de: { back: "Zurück", title: "Versionsgeschichte", subtitle: "Was ist neu in Street Chef", home: "Start", support: "Support", privacy: "Datenschutz", new: "Neu", improved: "Verbessert", fixed: "Behoben", latest: "Aktuell" },
-            fr: { back: "Retour", title: "Historique des versions", subtitle: "Nouveautés de Street Chef", home: "Accueil", support: "Support", privacy: "Confidentialité", new: "Nouveau", improved: "Amélioré", fixed: "Corrigé", latest: "Dernier" },
-            it: { back: "Indietro", title: "Cronologia versioni", subtitle: "Novita in Street Chef", home: "Home", support: "Supporto", privacy: "Privacy", new: "Nuovo", improved: "Migliorato", fixed: "Corretto", latest: "Ultimo" }
+            en: { back: "Back", title: "Version History", subtitle: "What's new in Street Chef", home: "Home", support: "Support", privacy: "Privacy Policy", terms: "Terms of Use", new: "New", improved: "Improved", fixed: "Fixed", latest: "Latest" },
+            ru: { back: "Назад", title: "История версий", subtitle: "Что нового в Street Chef", home: "Главная", support: "Поддержка", privacy: "Конфиденциальность", terms: "Условия использования", new: "Новое", improved: "Улучшено", fixed: "Исправлено", latest: "Актуально" },
+            es: { back: "Volver", title: "Historial de versiones", subtitle: "Novedades en Street Chef", home: "Inicio", support: "Soporte", privacy: "Privacidad", terms: "Términos de Uso", new: "Nuevo", improved: "Mejorado", fixed: "Corregido", latest: "Último" },
+            de: { back: "Zurück", title: "Versionsgeschichte", subtitle: "Was ist neu in Street Chef", home: "Start", support: "Support", privacy: "Datenschutz", terms: "Nutzungsbedingungen", new: "Neu", improved: "Verbessert", fixed: "Behoben", latest: "Aktuell" },
+            fr: { back: "Retour", title: "Historique des versions", subtitle: "Nouveautés de Street Chef", home: "Accueil", support: "Support", privacy: "Confidentialité", terms: "Conditions d'Utilisation", new: "Nouveau", improved: "Amélioré", fixed: "Corrigé", latest: "Dernier" },
+            it: { back: "Indietro", title: "Cronologia versioni", subtitle: "Novita in Street Chef", home: "Home", support: "Supporto", privacy: "Privacy", terms: "Termini di Utilizzo", new: "Nuovo", improved: "Migliorato", fixed: "Corretto", latest: "Ultimo" }
         };
 
         const langNames = { en: 'EN', ru: 'RU', es: 'ES', de: 'DE', fr: 'FR', it: 'IT' };
@@ -765,6 +766,7 @@
             document.getElementById('linkHome').textContent = t.home;
             document.getElementById('linkSupport').textContent = t.support;
             document.getElementById('linkPrivacy').textContent = t.privacy;
+            document.getElementById('linkTerms').textContent = t.terms;
             document.getElementById('currentLang').textContent = langNames[lang];
             
             document.querySelectorAll('.lang-option').forEach(btn => {

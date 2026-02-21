@@ -68,12 +68,15 @@
             <button onclick="setLang('es')">ES</button>
             <button onclick="setLang('de')">DE</button>
             <button onclick="setLang('fr')">FR</button>
+            <button onclick="setLang('it')">IT</button>
         </div>
 
         <div class="card" id="content"></div>
 
         <div class="links">
             <a href="support.html" id="linkBack">← Back to Support</a>
+            &nbsp;&nbsp;·&nbsp;&nbsp;
+            <a href="terms.html" id="linkTerms">Terms of Use</a>
         </div>
 
         <div class="footer">© 2026 Street Chef</div>
@@ -83,6 +86,7 @@
 const privacy = {
     en: {
         linkBack: "← Back to Support",
+        linkTerms: "Terms of Use",
         content: `
             <h2>Privacy Policy</h2>
             <p class="updated"><strong>Last updated:</strong> February 2, 2026</p>
@@ -155,12 +159,12 @@ const privacy = {
             <p>We may update this privacy policy from time to time. We will notify users of significant changes through the app or our website.</p>
 
             <h2>Contact Us</h2>
-            <p>If you have questions about this privacy policy or want to request data deletion:</p>
-            <p><strong>Email:</strong> 7715582@gmail.com</p>
+            <p>If you have questions about this privacy policy or want to request data deletion, please use our <a href="support.html" style="color:#ff6b35">Support page</a>.</p>
         `
     },
     ru: {
         linkBack: "← Вернуться к поддержке",
+        linkTerms: "Условия использования",
         content: `
             <h2>Политика конфиденциальности</h2>
             <p class="updated"><strong>Обновлено:</strong> 2 февраля 2026</p>
@@ -233,12 +237,12 @@ const privacy = {
             <p>Мы можем обновлять эту политику конфиденциальности. О существенных изменениях мы уведомим пользователей через приложение или наш сайт.</p>
 
             <h2>Связаться с нами</h2>
-            <p>Если у вас есть вопросы о политике конфиденциальности или вы хотите запросить удаление данных:</p>
-            <p><strong>Email:</strong> 7715582@gmail.com</p>
+            <p>Если у вас есть вопросы или вы хотите запросить удаление данных, воспользуйтесь <a href="support.html" style="color:#ff6b35">страницей поддержки</a>.</p>
         `
     },
     es: {
         linkBack: "← Volver a Soporte",
+        linkTerms: "Términos de Uso",
         content: `
             <h2>Política de Privacidad</h2>
             <p class="updated"><strong>Actualizado:</strong> 2 de febrero de 2026</p>
@@ -310,11 +314,12 @@ const privacy = {
             <p>Podemos actualizar esta política. Notificaremos cambios significativos a través de la app o nuestro sitio web.</p>
 
             <h2>Contáctenos</h2>
-            <p><strong>Email:</strong> 7715582@gmail.com</p>
+            <p>Para preguntas o solicitudes de eliminación de datos, use nuestra <a href="support.html" style="color:#ff6b35">página de soporte</a>.</p>
         `
     },
     de: {
         linkBack: "← Zurück zum Support",
+        linkTerms: "Nutzungsbedingungen",
         content: `
             <h2>Datenschutzrichtlinie</h2>
             <p class="updated"><strong>Aktualisiert:</strong> 2. Februar 2026</p>
@@ -386,11 +391,12 @@ const privacy = {
             <p>Wir können diese Richtlinie aktualisieren. Wesentliche Änderungen werden über die App oder unsere Website mitgeteilt.</p>
 
             <h2>Kontakt</h2>
-            <p><strong>Email:</strong> 7715582@gmail.com</p>
+            <p>Bei Fragen oder Anfragen zur Datenlöschung nutzen Sie bitte unsere <a href="support.html" style="color:#ff6b35">Support-Seite</a>.</p>
         `
     },
     fr: {
         linkBack: "← Retour au Support",
+        linkTerms: "Conditions d'Utilisation",
         content: `
             <h2>Politique de Confidentialité</h2>
             <p class="updated"><strong>Mise à jour:</strong> 2 février 2026</p>
@@ -462,7 +468,74 @@ const privacy = {
             <p>Nous pouvons mettre à jour cette politique. Les changements importants seront communiqués via l'app ou notre site web.</p>
 
             <h2>Contactez-nous</h2>
-            <p><strong>Email:</strong> 7715582@gmail.com</p>
+            <p>Pour toute question, utilisez la <a href="support.html" style="color:#ff6b35">page de support</a>.</p>
+        `
+    },
+    it: {
+        linkBack: "← Torna al Supporto",
+        linkTerms: "Termini di Utilizzo",
+        content: `
+            <h2>Informativa sulla Privacy</h2>
+            <p class="updated"><strong>Aggiornato:</strong> 21 febbraio 2026</p>
+
+            <h2>Panoramica</h2>
+            <p>Street Chef è un'app di gestione per food truck. Rispettiamo la tua privacy e proteggiamo i tuoi dati personali.</p>
+
+            <h2>Modalità Offline</h2>
+            <p>Street Chef funziona <strong>completamente offline</strong>. Tutti i dati sono memorizzati localmente sul tuo dispositivo. Puoi usare l'app senza account e senza connessione internet.</p>
+
+            <h2>Account e Sincronizzazione Team</h2>
+            <p>Se scegli di creare un account e usare la <strong>sincronizzazione team</strong>, i seguenti dati vengono trasmessi e archiviati su server cloud:</p>
+            <ul>
+                <li><strong>Dati di autenticazione:</strong> indirizzo email, password cifrata (gestita da Firebase Authentication)</li>
+                <li><strong>Dati aziendali:</strong> ordini, eventi, nomi e contatti clienti, elementi del menu</li>
+                <li><strong>Dati operativi:</strong> sessioni di lavoro, livelli bombole gas, log olio friggitrice</li>
+                <li><strong>Dati team:</strong> nomi dipendenti, ruoli, appartenenza al team</li>
+                <li><strong>Impostazioni:</strong> nome azienda, preferenze</li>
+            </ul>
+            <p>I dati sono sincronizzati tramite <strong>Google Firebase</strong> (Firestore). La trasmissione avviene tramite connessioni cifrate (TLS/SSL).</p>
+
+            <h2>Dati che NON raccogliamo</h2>
+            <ul>
+                <li>Dati di localizzazione o coordinate GPS</li>
+                <li>Identificatori dispositivo</li>
+                <li>Analisi di utilizzo o dati comportamentali</li>
+                <li>Identificatori pubblicitari</li>
+                <li>Contatti, foto o altri file personali</li>
+            </ul>
+
+            <h2>Archiviazione e Sicurezza</h2>
+            <ul>
+                <li><strong>Dati locali</strong> in un database cifrato sul tuo dispositivo</li>
+                <li><strong>Dati cloud</strong> sui server Google Cloud con regole di sicurezza Firestore</li>
+                <li>Tutte le comunicazioni tramite cifratura TLS/SSL</li>
+            </ul>
+
+            <h2>Condivisione dei Dati</h2>
+            <p>Non vendiamo, affittiamo o condividiamo i tuoi dati con terzi per scopi pubblicitari. I tuoi dati sono accessibili solo ai membri del tuo team che inviti tu stesso.</p>
+
+            <h2>Conservazione ed Eliminazione</h2>
+            <ul>
+                <li><strong>Dati locali:</strong> eliminati cancellando i record o disinstallando l'app</li>
+                <li><strong>Dati cloud:</strong> puoi richiedere l'eliminazione completa tramite il supporto. L'eliminazione dell'account rimuove tutti i dati associati</li>
+            </ul>
+
+            <h2>I Tuoi Diritti</h2>
+            <ul>
+                <li>Usare l'app completamente offline senza account</li>
+                <li>Richiedere l'accesso ai tuoi dati personali</li>
+                <li>Richiedere l'eliminazione del tuo account e dati</li>
+                <li>Esportare i tuoi dati</li>
+            </ul>
+
+            <h2>Privacy dei Minori</h2>
+            <p>Street Chef non è destinato a bambini di età inferiore ai 13 anni.</p>
+
+            <h2>Modifiche alla Policy</h2>
+            <p>Potremmo aggiornare questa policy. Le modifiche importanti saranno comunicate tramite l'app o il sito web.</p>
+
+            <h2>Contatti</h2>
+            <p>Per qualsiasi domanda, utilizza la <a href="support.html" style="color:#ff6b35">pagina di supporto</a>.</p>
         `
     }
 };
@@ -470,6 +543,7 @@ const privacy = {
 function setLang(lang) {
     document.getElementById('content').innerHTML = privacy[lang].content;
     document.getElementById('linkBack').textContent = privacy[lang].linkBack;
+    document.getElementById('linkTerms').textContent = privacy[lang].linkTerms;
     document.querySelectorAll('.lang-switcher button').forEach(btn => {
         btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
     });
@@ -478,7 +552,7 @@ function setLang(lang) {
 
 const savedLang = localStorage.getItem('streetchef-lang');
 const browserLang = navigator.language.slice(0, 2);
-const supportedLangs = ['en', 'ru', 'es', 'de', 'fr'];
+const supportedLangs = ['en', 'ru', 'es', 'de', 'fr', 'it'];
 setLang(savedLang || (supportedLangs.includes(browserLang) ? browserLang : 'en'));
 </script>
 </body>

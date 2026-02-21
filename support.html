@@ -112,6 +112,7 @@
             <button onclick="setLang('es')">ES</button>
             <button onclick="setLang('de')">DE</button>
             <button onclick="setLang('fr')">FR</button>
+            <button onclick="setLang('it')">IT</button>
         </div>
 
         <div class="card">
@@ -156,6 +157,7 @@
 
         <div class="links">
             <a href="privacy.html" id="linkPrivacy">Privacy Policy</a>
+            <a href="terms.html" id="linkTerms">Terms of Use</a>
         </div>
     </div>
 
@@ -174,6 +176,7 @@ const translations = {
         btnSubmit: "Send Message",
         faqTitle: "❓ FAQ",
         linkPrivacy: "Privacy Policy",
+        linkTerms: "Terms of Use",
         placeholderName: "John Smith",
         placeholderEmail: "john@example.com",
         placeholderMessage: "Describe your issue or question...",
@@ -198,6 +201,7 @@ const translations = {
         btnSubmit: "Отправить",
         faqTitle: "❓ Частые вопросы",
         linkPrivacy: "Политика конфиденциальности",
+        linkTerms: "Условия использования",
         placeholderName: "Иван Иванов",
         placeholderEmail: "ivan@example.com",
         placeholderMessage: "Опишите вашу проблему или вопрос...",
@@ -222,6 +226,7 @@ const translations = {
         btnSubmit: "Enviar Mensaje",
         faqTitle: "❓ Preguntas Frecuentes",
         linkPrivacy: "Política de Privacidad",
+        linkTerms: "Términos de Uso",
         placeholderName: "Juan García",
         placeholderEmail: "juan@example.com",
         placeholderMessage: "Describa su problema o pregunta...",
@@ -246,6 +251,7 @@ const translations = {
         btnSubmit: "Nachricht senden",
         faqTitle: "❓ Häufige Fragen",
         linkPrivacy: "Datenschutzrichtlinie",
+        linkTerms: "Nutzungsbedingungen",
         placeholderName: "Max Mustermann",
         placeholderEmail: "max@example.com",
         placeholderMessage: "Beschreiben Sie Ihr Problem oder Ihre Frage...",
@@ -270,6 +276,7 @@ const translations = {
         btnSubmit: "Envoyer le Message",
         faqTitle: "❓ Questions Fréquentes",
         linkPrivacy: "Politique de Confidentialité",
+        linkTerms: "Conditions d'Utilisation",
         placeholderName: "Jean Dupont",
         placeholderEmail: "jean@example.com",
         placeholderMessage: "Décrivez votre problème ou question...",
@@ -279,6 +286,31 @@ const translations = {
             ["Mes données sont-elles dans le cloud?", "Non. Toutes les données sont stockées localement sur votre appareil."],
             ["Puis-je utiliser StreetChef hors ligne?", "Oui! StreetChef fonctionne 100% hors ligne."],
             ["Comment annuler mon abonnement?", "Paramètres iPhone → Votre Nom → Abonnements → StreetChef"]
+        ]
+    },
+    it: {
+        subtitle: "Centro Assistenza",
+        contactTitle: "📬 Contattaci",
+        labelName: "Il Tuo Nome",
+        labelEmail: "Indirizzo Email",
+        labelTopic: "Argomento",
+        labelMessage: "Messaggio",
+        labelAttachment: "Screenshot (opzionale)",
+        fileUploadText: "Scegli file...",
+        fileSelected: "Selezionato:",
+        btnSubmit: "Invia Messaggio",
+        faqTitle: "❓ Domande Frequenti",
+        linkPrivacy: "Privacy",
+        linkTerms: "Termini di Utilizzo",
+        placeholderName: "Mario Rossi",
+        placeholderEmail: "mario@example.com",
+        placeholderMessage: "Descrivi il tuo problema o la tua domanda...",
+        topics: ["Seleziona argomento...", "Segnala Bug", "Richiedi Funzione", "Domanda Generale", "Fatturazione", "Altro"],
+        faq: [
+            ["Come faccio il backup dei dati?", "Impostazioni → Backup → Crea Backup"],
+            ["I miei dati sono nel cloud?", "No. Tutti i dati sono memorizzati localmente sul tuo dispositivo."],
+            ["Posso usare StreetChef offline?", "Sì! StreetChef funziona al 100% offline."],
+            ["Come cancello il mio abbonamento?", "Impostazioni iPhone → Il Tuo Nome → Abbonamenti → StreetChef"]
         ]
     }
 };
@@ -296,6 +328,7 @@ function setLang(lang) {
     document.getElementById('btnSubmit').textContent = t.btnSubmit;
     document.getElementById('faqTitle').textContent = t.faqTitle;
     document.getElementById('linkPrivacy').textContent = t.linkPrivacy;
+    document.getElementById('linkTerms').textContent = t.linkTerms;
     document.getElementById('inputName').placeholder = t.placeholderName;
     document.getElementById('inputEmail').placeholder = t.placeholderEmail;
     document.getElementById('inputMessage').placeholder = t.placeholderMessage;
@@ -332,7 +365,7 @@ function showFileName(input) {
 // Detect language
 const savedLang = localStorage.getItem('streetchef-lang');
 const browserLang = navigator.language.slice(0, 2);
-const supportedLangs = ['en', 'ru', 'es', 'de', 'fr'];
+const supportedLangs = ['en', 'ru', 'es', 'de', 'fr', 'it'];
 const defaultLang = savedLang || (supportedLangs.includes(browserLang) ? browserLang : 'en');
 setLang(defaultLang);
 </script>
