@@ -2,6 +2,19 @@
 
 All notable changes to StreetChef marketing site.
 
+## [1.3.1] - 2026-02-21
+
+### Added
+- **Version 1.3.1 release notes** on versions.html — Billing details (requisites) for business and clients
+
+### App changes (build 2)
+- Billing details form in Settings — country-specific fields (RU/DE/FR/ES/IT/generic)
+- Client card billing details — company clients can have legal name, bank account, tax ID etc.
+- Country set once globally in Settings — all billing forms inherit it automatically
+- Fixed: country selection in client card was not being saved
+
+---
+
 ## [1.3.0] - 2026-02-11
 
 ### Added
