@@ -2,6 +2,22 @@
 
 All notable changes to StreetChef marketing site.
 
+## [1.4.1] - 2026-08-28
+
+### Added
+- **Version 1.4.1 release notes** on versions.html (all 6 languages) — stability & fixes after 1.4.0
+
+### App changes (build 5)
+- Quotes: add combo sets (formules/sets) as a single line with name and total price
+- Account deletion from Settings (privacy compliance)
+- Assign staff directly from the order card — the Assign button now appears for members who haven't responded to availability
+- Quote PDF now shows the business logo
+- Fixed: shopping list could not be created from an order
+- Fixed: order checklist showed duplicated items (seed used random IDs → deterministic IDs + read-time dedup)
+- Fixed: quote total now includes tax (VAT); prices accept comma or dot as decimal separator
+
+---
+
 ## [1.3.1] - 2026-02-21
 
 ### Added
